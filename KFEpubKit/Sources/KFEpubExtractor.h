@@ -13,12 +13,11 @@
 @protocol KFEpubExtractorDelegate <NSObject>
 
 
+- (void)epubExtractorDidFinishExtracting:(KFEpubExtractor *)epubExtractor;
+
 @optional
 
-
 - (void)epubExtractorDidStartExtracting:(KFEpubExtractor *)epubExtractor;
-
-- (void)epubExtractorDidFinishExtracting:(KFEpubExtractor *)epubExtractor;
 
 - (void)epubExtractor:(KFEpubExtractor *)epubExtractor didFailWithError:(NSError *)error;
 

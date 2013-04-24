@@ -36,6 +36,10 @@
 {
     if (self.delegate)
     {
+        if ([self.delegate respondsToSelector:@selector(epubExtractorDidStartExtracting:)])
+        {
+            [self.delegate epubExtractorDidStartExtracting:self];
+        }
         self.extractingQueue = [[NSOperationQueue alloc] init];
         [self.extractingQueue addOperationWithBlock:^{
             

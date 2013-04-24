@@ -11,8 +11,9 @@
 @interface KFEpubContentModel : NSObject
 
 
-@property (nonatomic, strong) NSMutableDictionary *manifest;
-@property (nonatomic, strong) NSMutableArray *spine;
+@property (nonatomic, strong) NSDictionary *metaData;
+@property (nonatomic, strong) NSDictionary *manifest;
+@property (nonatomic, strong) NSArray *spine;
 
 
 @end

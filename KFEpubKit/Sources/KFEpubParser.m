@@ -69,7 +69,13 @@
         NSArray *metaElements = ((NSXMLElement *)metaNodes[0]).children;
         for (NSXMLElement* xmlElement in metaElements)
         {
-            metaData[xmlElement.name] = xmlElement.stringValue;
+            NSString *nodeName = xmlElement.name;
+            NSArray *nodeNameComponents = [nodeName componentsSeparatedByString:@":"];
+            if (nodeNameComponents.count > 1)
+            {
+                nodeName = nodeNameComponents[1];
+            }
+            metaData[nodeName] = xmlElement.stringValue;
         }
     }
     else

@@ -9,6 +9,7 @@
 #import "KFEpubController.h"
 #import "KFEpubExtractor.h"
 #import "KFEpubParser.h"
+#import "KFEpubContentModel.h"
 
 @interface KFEpubController ()<KFEpubExtractorDelegate>
 
@@ -28,13 +29,18 @@
     self = [super init];
     if (self)
     {
+        _epubURL = epubURL;
         _destinationURL = destinationURL;
-        
-        self.extractor = [[KFEpubExtractor alloc] initWithEpubURL:epubURL andDestinationURL:destinationURL];
-        self.extractor.delegate = self;
-        [self.extractor start];
     }
     return self;
+}
+
+
+- (void)open
+{
+    self.extractor = [[KFEpubExtractor alloc] initWithEpubURL:self.epubURL andDestinationURL:self.destinationURL];
+    self.extractor.delegate = self;
+    [self.extractor start];
 }
 
 
@@ -43,40 +49,49 @@
 
 - (void)epubExtractorDidStartExtracting:(KFEpubExtractor *)epubExtractor
 {
-    NSLog(@"epubExtractorDidStartExtracting");
+    if ([self.delegate respondsToSelector:@selector(epubController:willOpenEpub:)])
+    {
+        [self.delegate epubController:self willOpenEpub:self.epubURL];
+    }
 }
 
 
 - (void)epubExtractorDidFinishExtracting:(KFEpubExtractor *)epubExtractor
 {
-    NSLog(@"epubExtractorDidFinishExtracting");
     self.parser = [KFEpubParser new];
     NSURL *rootFile = [self.parser rootFileForBaseURL:self.destinationURL];
     NSError *error = nil;
     NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:rootFile options:kNilOptions error:&error];
     if (document)
     {
-        NSDictionary *metaData = [self.parser metaDataFromDocument:document];
-        NSLog(@"meta: %@", metaData);
+        _contentModel = [KFEpubContentModel new];
         
-        NSDictionary *manifest = [self.parser manifestFromDocument:document];
-        NSArray *spine = [self.parser spineFromDocument:document];
+        self.contentModel.metaData = [self.parser metaDataFromDocument:document];
+        self.contentModel.manifest = [self.parser manifestFromDocument:document];
+        self.contentModel.spine = [self.parser spineFromDocument:document];
         
-        [spine enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop)
+        [_contentModel.spine enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop)
         {
             if (idx > 0)
             {
-                NSLog(@"%@", manifest[item]);
+                NSLog(@"%@", self.contentModel.manifest[item]);
             }
         }];
         
+        if (self.delegate)
+        {
+            [self.delegate epubController:self didOpenEpub:self.contentModel];
+        }
     }
 }
 
 
 - (void)epubExtractor:(KFEpubExtractor *)epubExtractor didFailWithError:(NSError *)error
 {
-    NSLog(@"epubExtractor:didFailWithError");
+    if (self.delegate)
+    {
+        [self.delegate epubController:self didFailWithError:error];
+    }
 }
 
 
