@@ -10,6 +10,11 @@
 
 @interface KFEpubController : NSObject
 
+
 @property (nonatomic, readonly, strong) NSURL *destinationURL;
+
+
+- (instancetype)initWithEpubURL:(NSURL *)epubURL andDestinationFolder:(NSURL *)destinationURL;
+
 
 @end

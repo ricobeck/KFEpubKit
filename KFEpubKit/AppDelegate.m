@@ -7,12 +7,53 @@
 //
 
 #import "AppDelegate.h"
+#import "KFEpubController.h"
+
+@interface AppDelegate ()
+
+
+@property (nonatomic, strong) KFEpubController *epubController;
+
+
+@end
+
 
 @implementation AppDelegate
 
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    NSData *securityBookmark = [[NSUserDefaults standardUserDefaults] objectForKey:@"appDirectory"];
+    if (!securityBookmark)
+    {
+        NSOpenPanel *panel = [NSOpenPanel openPanel];
+        
+        [panel setCanChooseFiles:NO];
+        [panel setCanChooseDirectories:YES];
+        [panel setAllowsMultipleSelection:NO];
+        
+        [panel beginWithCompletionHandler:^(NSInteger result)
+        {
+            if (result == NSFileHandlingPanelOKButton)
+            {
+                for (NSURL *fileURL in [panel URLs])
+                {
+                    
+                }
+                [self testEpubsInMainBundleResources];
+            }
+        }];
+    }
+    else
+    {
+        [self testEpubsInMainBundleResources];
+    }
+}
+
+
+- (void)testEpubsInMainBundleResources
+{
+     self.epubController = [[KFEpubController alloc] init];
 }
 
 @end

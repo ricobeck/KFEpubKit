@@ -23,7 +23,7 @@
 @implementation KFEpubController
 
 
-- (id)initWithEpubURL:(NSURL *)epubURL andDestinationFolder:(NSURL *)destinationURL
+- (instancetype)initWithEpubURL:(NSURL *)epubURL andDestinationFolder:(NSURL *)destinationURL
 {
     self = [super init];
     if (self)
