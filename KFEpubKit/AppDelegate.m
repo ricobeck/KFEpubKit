@@ -13,6 +13,7 @@
 
 
 @property (nonatomic, strong) KFEpubController *epubController;
+@property (nonatomic, strong) NSURL *libraryURL;
 
 
 @end
@@ -26,34 +27,59 @@
     NSData *securityBookmark = [[NSUserDefaults standardUserDefaults] objectForKey:@"appDirectory"];
     if (!securityBookmark)
     {
-        NSOpenPanel *panel = [NSOpenPanel openPanel];
-        
-        [panel setCanChooseFiles:NO];
-        [panel setCanChooseDirectories:YES];
-        [panel setAllowsMultipleSelection:NO];
-        
-        [panel beginWithCompletionHandler:^(NSInteger result)
-        {
-            if (result == NSFileHandlingPanelOKButton)
-            {
-                for (NSURL *fileURL in [panel URLs])
-                {
-                    
-                }
-                [self testEpubsInMainBundleResources];
-            }
-        }];
+        [self requestLibraryURL];
     }
     else
     {
-        [self testEpubsInMainBundleResources];
+        NSError *error = nil;
+        BOOL dataIsStale;
+        self.libraryURL = [NSURL URLByResolvingBookmarkData:securityBookmark options:NSURLBookmarkResolutionWithSecurityScope relativeToURL:nil bookmarkDataIsStale:&dataIsStale error:&error];
+        
+        if (error)
+        {
+            [self requestLibraryURL];
+        }
+        else
+        {
+            [self testEpubsInMainBundleResources];
+        }
     }
+}
+
+
+- (void)requestLibraryURL
+{
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    
+    panel.title = @"Select or create a Library Folder";
+    panel.canChooseFiles = NO;
+    panel.canCreateDirectories = YES;
+    panel.canChooseDirectories = YES;
+    panel.allowsMultipleSelection = NO;
+        
+    [panel beginWithCompletionHandler:^(NSInteger result)
+     {
+         if (result == NSFileHandlingPanelOKButton)
+         {
+             NSError *error = nil;
+             for (NSURL *fileURL in [panel URLs])
+             {
+                 self.libraryURL = fileURL;
+                 NSData *securityBookmark = [fileURL bookmarkDataWithOptions:NSURLBookmarkCreationWithSecurityScope includingResourceValuesForKeys:nil relativeToURL:nil error:&error];
+                 [[NSUserDefaults standardUserDefaults] setValue:securityBookmark forKey:@"appDirectory"];
+             }
+             [self testEpubsInMainBundleResources];
+         }
+     }];
 }
 
 
 - (void)testEpubsInMainBundleResources
 {
-     self.epubController = [[KFEpubController alloc] init];
+    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"TDD-for-iOS" withExtension:@"epub"];
+    
+    [self.libraryURL startAccessingSecurityScopedResource];
+    self.epubController = [[KFEpubController alloc] initWithEpubURL:epubURL andDestinationFolder:self.libraryURL];
 }
 
 @end

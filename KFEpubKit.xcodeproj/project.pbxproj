@@ -1,361 +1,961 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		1D4FFADA17280EC500AA5D35 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
-		1D4FFADD1728203C00AA5D35 /* KFEpubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFADC1728203C00AA5D35 /* KFEpubController.m */; };
-		1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
-		1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
-		1DEB65701727E18800FDBDC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB656F1727E18800FDBDC3 /* main.m */; };
-		1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65721727E18800FDBDC3 /* Credits.rtf */; };
-		1DEB65771727E18800FDBDC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65761727E18800FDBDC3 /* AppDelegate.m */; };
-		1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65781727E18800FDBDC3 /* MainMenu.xib */; };
-		1DEB65841727E43400FDBDC3 /* TDD-for-iOS.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */; };
-		1DEB65871727FC6700FDBDC3 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
-		1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		1D4FFAD817280EC500AA5D35 /* KFEpubExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubExtractor.h; path = Sources/KFEpubExtractor.h; sourceTree = "<group>"; };
-		1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubExtractor.m; path = Sources/KFEpubExtractor.m; sourceTree = "<group>"; };
-		1D4FFADB1728203C00AA5D35 /* KFEpubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubController.h; path = Sources/KFEpubController.h; sourceTree = "<group>"; };
-		1D4FFADC1728203C00AA5D35 /* KFEpubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubController.m; path = Sources/KFEpubController.m; sourceTree = "<group>"; };
-		1D4FFADE1728255100AA5D35 /* KFEpubKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KFEpubKit.entitlements; sourceTree = "<group>"; };
-		1DEB65601727E18800FDBDC3 /* KFEpubKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFEpubKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DEB65631727E18800FDBDC3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		1DEB65661727E18800FDBDC3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		1DEB65671727E18800FDBDC3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		1DEB65681727E18800FDBDC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1DEB656B1727E18800FDBDC3 /* KFEpubKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KFEpubKit-Info.plist"; sourceTree = "<group>"; };
-		1DEB656D1727E18800FDBDC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1DEB656F1727E18800FDBDC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1DEB65711727E18800FDBDC3 /* KFEpubKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KFEpubKit-Prefix.pch"; sourceTree = "<group>"; };
-		1DEB65731727E18800FDBDC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		1DEB65751727E18800FDBDC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1DEB65761727E18800FDBDC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1DEB65791727E18800FDBDC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TDD-for-iOS.epub"; sourceTree = "<group>"; };
-		1DEB65851727FC6700FDBDC3 /* KFEpubParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubParser.h; path = Sources/KFEpubParser.h; sourceTree = "<group>"; };
-		1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubParser.m; path = Sources/KFEpubParser.m; sourceTree = "<group>"; };
-		1DEB65891727FFEE00FDBDC3 /* KFEpubContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubContentModel.h; path = Sources/KFEpubContentModel.h; sourceTree = "<group>"; };
-		1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubContentModel.m; path = Sources/KFEpubContentModel.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		1DEB655D1727E18800FDBDC3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		1DEB65571727E18800FDBDC3 = {
-			isa = PBXGroup;
-			children = (
-				1DEB65691727E18800FDBDC3 /* KFEpubKit */,
-				1DEB65621727E18800FDBDC3 /* Frameworks */,
-				1DEB65611727E18800FDBDC3 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		1DEB65611727E18800FDBDC3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1DEB65601727E18800FDBDC3 /* KFEpubKit.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1DEB65621727E18800FDBDC3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1DEB65631727E18800FDBDC3 /* Cocoa.framework */,
-				1DEB65651727E18800FDBDC3 /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1DEB65651727E18800FDBDC3 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1DEB65661727E18800FDBDC3 /* AppKit.framework */,
-				1DEB65671727E18800FDBDC3 /* CoreData.framework */,
-				1DEB65681727E18800FDBDC3 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		1DEB65691727E18800FDBDC3 /* KFEpubKit */ = {
-			isa = PBXGroup;
-			children = (
-				1D4FFADE1728255100AA5D35 /* KFEpubKit.entitlements */,
-				1DEB65751727E18800FDBDC3 /* AppDelegate.h */,
-				1DEB65761727E18800FDBDC3 /* AppDelegate.m */,
-				1DEB65781727E18800FDBDC3 /* MainMenu.xib */,
-				1DEB65881727FC7100FDBDC3 /* Sources */,
-				1DEB656A1727E18800FDBDC3 /* Supporting Files */,
-			);
-			path = KFEpubKit;
-			sourceTree = "<group>";
-		};
-		1DEB656A1727E18800FDBDC3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1DEB65821727E43400FDBDC3 /* Resources */,
-				1DEB656B1727E18800FDBDC3 /* KFEpubKit-Info.plist */,
-				1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */,
-				1DEB656F1727E18800FDBDC3 /* main.m */,
-				1DEB65711727E18800FDBDC3 /* KFEpubKit-Prefix.pch */,
-				1DEB65721727E18800FDBDC3 /* Credits.rtf */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1DEB65821727E43400FDBDC3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		1DEB65881727FC7100FDBDC3 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				1DEB65891727FFEE00FDBDC3 /* KFEpubContentModel.h */,
-				1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */,
-				1D4FFADB1728203C00AA5D35 /* KFEpubController.h */,
-				1D4FFADC1728203C00AA5D35 /* KFEpubController.m */,
-				1D4FFAD817280EC500AA5D35 /* KFEpubExtractor.h */,
-				1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */,
-				1DEB65851727FC6700FDBDC3 /* KFEpubParser.h */,
-				1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		1DEB655F1727E18800FDBDC3 /* KFEpubKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB657D1727E18800FDBDC3 /* Build configuration list for PBXNativeTarget "KFEpubKit" */;
-			buildPhases = (
-				1DEB655C1727E18800FDBDC3 /* Sources */,
-				1DEB655D1727E18800FDBDC3 /* Frameworks */,
-				1DEB655E1727E18800FDBDC3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = KFEpubKit;
-			productName = KFEpubKit;
-			productReference = 1DEB65601727E18800FDBDC3 /* KFEpubKit.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		1DEB65581727E18800FDBDC3 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "KF Interactive";
-			};
-			buildConfigurationList = 1DEB655B1727E18800FDBDC3 /* Build configuration list for PBXProject "KFEpubKit" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 1DEB65571727E18800FDBDC3;
-			productRefGroup = 1DEB65611727E18800FDBDC3 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				1DEB655F1727E18800FDBDC3 /* KFEpubKit */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		1DEB655E1727E18800FDBDC3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */,
-				1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */,
-				1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */,
-				1DEB65841727E43400FDBDC3 /* TDD-for-iOS.epub in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		1DEB655C1727E18800FDBDC3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1DEB65701727E18800FDBDC3 /* main.m in Sources */,
-				1DEB65771727E18800FDBDC3 /* AppDelegate.m in Sources */,
-				1DEB65871727FC6700FDBDC3 /* KFEpubParser.m in Sources */,
-				1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */,
-				1D4FFADA17280EC500AA5D35 /* KFEpubExtractor.m in Sources */,
-				1D4FFADD1728203C00AA5D35 /* KFEpubController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DEB656D1727E18800FDBDC3 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1DEB65721727E18800FDBDC3 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DEB65731727E18800FDBDC3 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		1DEB65781727E18800FDBDC3 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DEB65791727E18800FDBDC3 /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		1DEB657B1727E18800FDBDC3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		1DEB657C1727E18800FDBDC3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		1DEB657E1727E18800FDBDC3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
-				INFOPLIST_FILE = "KFEpubKit/KFEpubKit-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		1DEB657F1727E18800FDBDC3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
-				INFOPLIST_FILE = "KFEpubKit/KFEpubKit-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		1DEB655B1727E18800FDBDC3 /* Build configuration list for PBXProject "KFEpubKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DEB657B1727E18800FDBDC3 /* Debug */,
-				1DEB657C1727E18800FDBDC3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1DEB657D1727E18800FDBDC3 /* Build configuration list for PBXNativeTarget "KFEpubKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DEB657E1727E18800FDBDC3 /* Debug */,
-				1DEB657F1727E18800FDBDC3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 1DEB65581727E18800FDBDC3 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0F12443EF7044523A4B55C0A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>1D4FFAD817280EC500AA5D35</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>KFEpubExtractor.h</string>
+			<key>path</key>
+			<string>Sources/KFEpubExtractor.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1D4FFAD917280EC500AA5D35</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>KFEpubExtractor.m</string>
+			<key>path</key>
+			<string>Sources/KFEpubExtractor.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1D4FFADA17280EC500AA5D35</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1D4FFAD917280EC500AA5D35</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1D4FFADB1728203C00AA5D35</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>KFEpubController.h</string>
+			<key>path</key>
+			<string>Sources/KFEpubController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1D4FFADC1728203C00AA5D35</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>KFEpubController.m</string>
+			<key>path</key>
+			<string>Sources/KFEpubController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1D4FFADD1728203C00AA5D35</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1D4FFADC1728203C00AA5D35</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1D4FFADE1728255100AA5D35</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xml</string>
+			<key>path</key>
+			<string>KFEpubKit.entitlements</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65571727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65691727E18800FDBDC3</string>
+				<string>1DEB65621727E18800FDBDC3</string>
+				<string>1DEB65611727E18800FDBDC3</string>
+				<string>0F12443EF7044523A4B55C0A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65581727E18800FDBDC3</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0460</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>KF Interactive</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>1DEB655B1727E18800FDBDC3</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>1DEB65571727E18800FDBDC3</string>
+			<key>productRefGroup</key>
+			<string>1DEB65611727E18800FDBDC3</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>1DEB655F1727E18800FDBDC3</string>
+			</array>
+		</dict>
+		<key>1DEB655B1727E18800FDBDC3</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>1DEB657B1727E18800FDBDC3</string>
+				<string>1DEB657C1727E18800FDBDC3</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>1DEB655C1727E18800FDBDC3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1DEB65701727E18800FDBDC3</string>
+				<string>1DEB65771727E18800FDBDC3</string>
+				<string>1DEB65871727FC6700FDBDC3</string>
+				<string>1DEB658B1727FFEE00FDBDC3</string>
+				<string>1D4FFADA17280EC500AA5D35</string>
+				<string>1D4FFADD1728203C00AA5D35</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1DEB655D1727E18800FDBDC3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1DEB65641727E18800FDBDC3</string>
+				<string>7AA5D2345D0E47159C2757BB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1DEB655E1727E18800FDBDC3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1DEB656E1727E18800FDBDC3</string>
+				<string>1DEB65741727E18800FDBDC3</string>
+				<string>1DEB657A1727E18800FDBDC3</string>
+				<string>1DEB65841727E43400FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1DEB655F1727E18800FDBDC3</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>1DEB657D1727E18800FDBDC3</string>
+			<key>buildPhases</key>
+			<array>
+				<string>622A460046AD498B9C7DA289</string>
+				<string>1DEB655C1727E18800FDBDC3</string>
+				<string>1DEB655D1727E18800FDBDC3</string>
+				<string>1DEB655E1727E18800FDBDC3</string>
+				<string>4802EEF392AB43118F671E11</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>KFEpubKit</string>
+			<key>productName</key>
+			<string>KFEpubKit</string>
+			<key>productReference</key>
+			<string>1DEB65601727E18800FDBDC3</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>1DEB65601727E18800FDBDC3</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>KFEpubKit.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>1DEB65611727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65601727E18800FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65621727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65631727E18800FDBDC3</string>
+				<string>1DEB65651727E18800FDBDC3</string>
+				<string>2141621C88774C2A9E8B1C10</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65631727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Cocoa.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Cocoa.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>1DEB65641727E18800FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB65631727E18800FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB65651727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65661727E18800FDBDC3</string>
+				<string>1DEB65671727E18800FDBDC3</string>
+				<string>1DEB65681727E18800FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Other Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65661727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>AppKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/AppKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>1DEB65671727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreData.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreData.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>1DEB65681727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>1DEB65691727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1D4FFADE1728255100AA5D35</string>
+				<string>1DEB65751727E18800FDBDC3</string>
+				<string>1DEB65761727E18800FDBDC3</string>
+				<string>1DEB65781727E18800FDBDC3</string>
+				<string>1DEB65881727FC7100FDBDC3</string>
+				<string>1DEB656A1727E18800FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>KFEpubKit</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB656A1727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65821727E43400FDBDC3</string>
+				<string>1DEB656B1727E18800FDBDC3</string>
+				<string>1DEB656C1727E18800FDBDC3</string>
+				<string>1DEB656F1727E18800FDBDC3</string>
+				<string>1DEB65711727E18800FDBDC3</string>
+				<string>1DEB65721727E18800FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB656B1727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>KFEpubKit-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB656C1727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB656D1727E18800FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB656D1727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB656E1727E18800FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB656C1727E18800FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB656F1727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65701727E18800FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB656F1727E18800FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB65711727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>KFEpubKit-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65721727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65731727E18800FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Credits.rtf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65731727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.rtf</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/Credits.rtf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65741727E18800FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB65721727E18800FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB65751727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65761727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65771727E18800FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB65761727E18800FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB65781727E18800FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65791727E18800FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>MainMenu.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65791727E18800FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/MainMenu.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB657A1727E18800FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB65781727E18800FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB657B1727E18800FDBDC3</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_64_BIT)</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.8</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>1DEB657C1727E18800FDBDC3</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_64_BIT)</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.8</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1DEB657D1727E18800FDBDC3</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>1DEB657E1727E18800FDBDC3</string>
+				<string>1DEB657F1727E18800FDBDC3</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>1DEB657E1727E18800FDBDC3</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>0F12443EF7044523A4B55C0A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>KFEpubKit/KFEpubKit.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>Mac Developer</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>KFEpubKit/KFEpubKit-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>KFEpubKit/KFEpubKit-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>1DEB657F1727E18800FDBDC3</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>0F12443EF7044523A4B55C0A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>KFEpubKit/KFEpubKit.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>Mac Developer</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>KFEpubKit/KFEpubKit-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>KFEpubKit/KFEpubKit-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1DEB65821727E43400FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65831727E43400FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65831727E43400FDBDC3</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file</string>
+			<key>path</key>
+			<string>TDD-for-iOS.epub</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65841727E43400FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB65831727E43400FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB65851727FC6700FDBDC3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>KFEpubParser.h</string>
+			<key>path</key>
+			<string>Sources/KFEpubParser.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65861727FC6700FDBDC3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>KFEpubParser.m</string>
+			<key>path</key>
+			<string>Sources/KFEpubParser.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65871727FC6700FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB65861727FC6700FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1DEB65881727FC7100FDBDC3</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1DEB65891727FFEE00FDBDC3</string>
+				<string>1DEB658A1727FFEE00FDBDC3</string>
+				<string>1D4FFADB1728203C00AA5D35</string>
+				<string>1D4FFADC1728203C00AA5D35</string>
+				<string>1D4FFAD817280EC500AA5D35</string>
+				<string>1D4FFAD917280EC500AA5D35</string>
+				<string>1DEB65851727FC6700FDBDC3</string>
+				<string>1DEB65861727FC6700FDBDC3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Sources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB65891727FFEE00FDBDC3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>KFEpubContentModel.h</string>
+			<key>path</key>
+			<string>Sources/KFEpubContentModel.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB658A1727FFEE00FDBDC3</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>KFEpubContentModel.m</string>
+			<key>path</key>
+			<string>Sources/KFEpubContentModel.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DEB658B1727FFEE00FDBDC3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1DEB658A1727FFEE00FDBDC3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2141621C88774C2A9E8B1C10</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods.a</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4802EEF392AB43118F671E11</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
+		</dict>
+		<key>622A460046AD498B9C7DA289</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
+		</dict>
+		<key>7AA5D2345D0E47159C2757BB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2141621C88774C2A9E8B1C10</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict/>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>1DEB65581727E18800FDBDC3</string>
+</dict>
+</plist>

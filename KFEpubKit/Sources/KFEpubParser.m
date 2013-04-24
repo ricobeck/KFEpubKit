@@ -10,7 +10,7 @@
 #import "KFEpubContentModel.h"
 
 
-@interface KFEpubParser ()<NSXMLParserDelegate>
+@interface KFEpubParser ()
 
 
 @property (strong) NSXMLParser *parser;
@@ -26,91 +26,109 @@
 @implementation KFEpubParser
 
 
-- (instancetype)initWithBaseURL:(NSURL *)baseURL
+- (NSURL *)rootFileForBaseURL:(NSURL *)baseURL
 {
-    self = [super init];
-    if (self)
-    {
-        NSURL *containerURL = [[baseURL URLByAppendingPathComponent:@"META-INF"] URLByAppendingPathComponent:@"container.xml"];
-        self.parser = [[NSXMLParser alloc] initWithContentsOfURL:containerURL];
-        self.parser.delegate = self;
-    }
-    return self;
-}
-
-
-- (BOOL)startParsing
-{
-    if (self.parser)
-    {
-        [self.parser parse];
-        return YES;
-    }
-    return NO;
-}
-
-
-- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
-{
-    [self.delegate epubParser:self failedWithError:parseError];
-}
-
-
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-	
-	if ([elementName isEqualToString:@"rootfile"])
-    {
-		self.rootPath = [attributeDict valueForKey:@"full-path"];
-        
-		if ([self.delegate respondsToSelector:@selector(epubParser:didFindRootPath:)])
-        {
-			[self.delegate epubParser:self didFindRootPath:self.rootPath];
-		}
-	}
-	if ([elementName isEqualToString:@"package"])
-    {
-		self.contentModel = [[KFEpubContentModel alloc] init];
-	}
-	else if ([elementName isEqualToString:@"manifest"])
-    {
-		self.items = [[NSMutableDictionary alloc] init];
-	}
-	else if ([elementName isEqualToString:@"item"])
-    {
-		[self.items setValue:[attributeDict valueForKey:@"href"] forKey:[attributeDict valueForKey:@"id"]];
-	}
-	else if ([elementName isEqualToString:@"spine"])
-    {
-		self.spinearray=[[NSMutableArray alloc] init];
-	}
-	else if ([elementName isEqualToString:@"itemref"])
-    {
-        if (![attributeDict valueForKey:@"linear"] || ![[attributeDict valueForKey:@"linear"] isEqualToString:@"no"])
-        {
-            [self.spinearray addObject:[attributeDict valueForKey:@"idref"]];
-        }
-	}
-}
-
-
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
-    if ([elementName isEqualToString:@"manifest"])
-    {
-        self.contentModel.manifest = self.items;
-    }
-    else if ([elementName isEqualToString:@"spine"])
-    {
-        self.contentModel.spine = self.spinearray;
-    }
-    else if ([elementName isEqualToString:@"package"])
-    {
-        if ((self.delegate != nil) && ([self.delegate respondsToSelector:@selector(finishedParsing:)]))
-        {
-            [self.delegate epubParser:self didFinishParsingContent:self.contentModel];
-        }
-    }
+    NSURL *containerURL = [[baseURL URLByAppendingPathComponent:@"META-INF"] URLByAppendingPathComponent:@"container.xml"];
+    NSError *error = nil;
+    NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:containerURL options:kNilOptions error:&error];
+    NSXMLElement *root  = [document rootElement];
+    NSArray* objectElements = [root nodesForXPath:@"//container/rootfiles/rootfile" error:nil];
     
+    NSUInteger count = 0;
+    NSString *value = nil;
+    for (NSXMLElement* xmlElement in objectElements)
+    {
+        value = [[xmlElement attributeForName:@"full-path"] stringValue];
+        count++;
+    }
+
+    if (count == 1 && value)
+    {
+        return [baseURL URLByAppendingPathComponent:value];
+    }
+    else if (count == 0)
+    {
+        NSLog(@"no root file found");
+    }
+    else
+    {
+        NSLog(@"there are more than one root files. this seems odd");
+    }
+    return nil;
+}
+
+
+- (NSDictionary *)metaDataFromDocument:(NSXMLDocument *)document
+{
+    NSMutableDictionary *metaData = [NSMutableDictionary new];
+    NSXMLElement *root  = [document rootElement];
+    NSArray *metaNodes = [root nodesForXPath:@"//package/metadata" error:nil];
+    
+    if (metaNodes.count == 1)
+    {
+        NSArray *metaElements = ((NSXMLElement *)metaNodes[0]).children;
+        for (NSXMLElement* xmlElement in metaElements)
+        {
+            metaData[xmlElement.name] = xmlElement.stringValue;
+        }
+    }
+    else
+    {
+        NSLog(@"no meta data found");
+        return nil;
+    }
+    return metaData;
+}
+
+
+- (NSArray *)spineFromDocument:(NSXMLDocument *)document
+{
+    NSMutableArray *spine = [NSMutableArray new];
+    NSXMLElement *root  = [document rootElement];
+    NSArray *spineNodes = [root nodesForXPath:@"//package/spine" error:nil];
+    
+    if (spineNodes.count == 1)
+    {
+        NSXMLElement *spineElement = spineNodes[0];
+        [spine addObject:[spineElement attributeForName:@"toc"]];
+        NSArray *spineElements = spineElement.children;
+        for (NSXMLElement* xmlElement in spineElements)
+        {
+            [spine addObject:[[xmlElement attributeForName:@"idref"] stringValue]];
+        }
+    }
+    else
+    {
+        NSLog(@"no spine data found");
+        return nil;
+    }
+    return spine;
+}
+
+
+- (NSDictionary *)manifestFromDocument:(NSXMLDocument *)document
+{
+    NSMutableDictionary *manifest = [NSMutableDictionary new];
+    NSXMLElement *root  = [document rootElement];
+    NSArray *manifestNodes = [root nodesForXPath:@"//package/manifest" error:nil];
+    
+    if (manifestNodes.count == 1)
+    {
+        NSArray *itemElements = ((NSXMLElement *)manifestNodes[0]).children;
+        for (NSXMLElement* xmlElement in itemElements)
+        {
+            NSString *href = [[xmlElement attributeForName:@"href"] stringValue];
+            NSString *itemId = [[xmlElement attributeForName:@"id"] stringValue];
+            NSString *mediaType = [[xmlElement attributeForName:@"media-type"] stringValue];
+            manifest[itemId] = @{@"href": href, @"media":mediaType};
+        }
+    }
+    else
+    {
+        NSLog(@"no manifest data found");
+        return nil;
+    }
+    return manifest;
 }
 
 

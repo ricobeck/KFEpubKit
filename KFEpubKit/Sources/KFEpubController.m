@@ -10,7 +10,7 @@
 #import "KFEpubExtractor.h"
 #import "KFEpubParser.h"
 
-@interface KFEpubController ()<KFEpubExtractorDelegate, KFEpubParserDelegate>
+@interface KFEpubController ()<KFEpubExtractorDelegate>
 
 
 @property (nonatomic, strong) KFEpubExtractor *extractor;
@@ -32,6 +32,7 @@
         
         self.extractor = [[KFEpubExtractor alloc] initWithEpubURL:epubURL andDestinationURL:destinationURL];
         self.extractor.delegate = self;
+        [self.extractor start];
     }
     return self;
 }
@@ -42,41 +43,40 @@
 
 - (void)epubExtractorDidStartExtracting:(KFEpubExtractor *)epubExtractor
 {
-    
+    NSLog(@"epubExtractorDidStartExtracting");
 }
 
 
 - (void)epubExtractorDidFinishExtracting:(KFEpubExtractor *)epubExtractor
 {
-    self.parser = [[KFEpubParser alloc] initWithBaseURL:self.destinationURL];
-    self.parser.delegate = self;
+    NSLog(@"epubExtractorDidFinishExtracting");
+    self.parser = [KFEpubParser new];
+    NSURL *rootFile = [self.parser rootFileForBaseURL:self.destinationURL];
+    NSError *error = nil;
+    NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:rootFile options:kNilOptions error:&error];
+    if (document)
+    {
+        NSDictionary *metaData = [self.parser metaDataFromDocument:document];
+        NSLog(@"meta: %@", metaData);
+        
+        NSDictionary *manifest = [self.parser manifestFromDocument:document];
+        NSArray *spine = [self.parser spineFromDocument:document];
+        
+        [spine enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop)
+        {
+            if (idx > 0)
+            {
+                NSLog(@"%@", manifest[item]);
+            }
+        }];
+        
+    }
 }
 
 
 - (void)epubExtractor:(KFEpubExtractor *)epubExtractor didFailWithError:(NSError *)error
 {
-    
-}
-
-
-#pragma mark KFEpubParserDelegate Methods
-
-
-- (void)epubParser:(KFEpubParser *)epubParser didFindRootPath:(NSString*)rootPath
-{
-    
-}
-
-
-- (void)epubParser:(KFEpubParser *)epubParser didFinishParsingContent:(KFEpubContentModel *)content
-{
-    
-}
-
-
-- (void)epubParser:(KFEpubParser *)epubPArser failedWithError:(NSError *)error
-{
-    
+    NSLog(@"epubExtractor:didFailWithError");
 }
 
 

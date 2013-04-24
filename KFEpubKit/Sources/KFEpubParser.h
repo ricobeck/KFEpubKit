@@ -12,31 +12,16 @@
 @class KFEpubContentModel;
 
 
-@protocol KFEpubParserDelegate <NSObject>
-
-
-@optional
-
-
-- (void)epubParser:(KFEpubParser *)epubParser didFindRootPath:(NSString*)rootPath;
-
-- (void)epubParser:(KFEpubParser *)epubParser didFinishParsingContent:(KFEpubContentModel *)content;
-
-- (void)epubParser:(KFEpubParser *)epubPArser failedWithError:(NSError *)error;
-
-
-@end
-
-
 @interface KFEpubParser : NSObject
 
 
-@property (nonatomic, strong) id<KFEpubParserDelegate> delegate;
+- (NSURL *)rootFileForBaseURL:(NSURL *)baseURL;
 
+- (NSDictionary *)metaDataFromDocument:(NSXMLDocument *)document;
 
-- (instancetype)initWithBaseURL:(NSURL *)baseURL;
+- (NSArray *)spineFromDocument:(NSXMLDocument *)document;
 
-- (BOOL)startParsing;
+- (NSDictionary *)manifestFromDocument:(NSXMLDocument *)document;
 
 
 @end
