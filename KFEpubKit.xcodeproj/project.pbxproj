@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D4FFADA17280EC500AA5D35 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
+		1D4FFADD1728203C00AA5D35 /* KFEpubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFADC1728203C00AA5D35 /* KFEpubController.m */; };
 		1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
 		1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
 		1DEB65701727E18800FDBDC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB656F1727E18800FDBDC3 /* main.m */; };
 		1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65721727E18800FDBDC3 /* Credits.rtf */; };
 		1DEB65771727E18800FDBDC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65761727E18800FDBDC3 /* AppDelegate.m */; };
 		1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65781727E18800FDBDC3 /* MainMenu.xib */; };
+		1DEB65841727E43400FDBDC3 /* TDD-for-iOS.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */; };
+		1DEB65871727FC6700FDBDC3 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
+		1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D4FFAD817280EC500AA5D35 /* KFEpubExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubExtractor.h; path = Sources/KFEpubExtractor.h; sourceTree = "<group>"; };
+		1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubExtractor.m; path = Sources/KFEpubExtractor.m; sourceTree = "<group>"; };
+		1D4FFADB1728203C00AA5D35 /* KFEpubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubController.h; path = Sources/KFEpubController.h; sourceTree = "<group>"; };
+		1D4FFADC1728203C00AA5D35 /* KFEpubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubController.m; path = Sources/KFEpubController.m; sourceTree = "<group>"; };
+		1D4FFADE1728255100AA5D35 /* KFEpubKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KFEpubKit.entitlements; sourceTree = "<group>"; };
 		1DEB65601727E18800FDBDC3 /* KFEpubKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFEpubKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEB65631727E18800FDBDC3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1DEB65661727E18800FDBDC3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -29,6 +39,11 @@
 		1DEB65751727E18800FDBDC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DEB65761727E18800FDBDC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1DEB65791727E18800FDBDC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TDD-for-iOS.epub"; sourceTree = "<group>"; };
+		1DEB65851727FC6700FDBDC3 /* KFEpubParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubParser.h; path = Sources/KFEpubParser.h; sourceTree = "<group>"; };
+		1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubParser.m; path = Sources/KFEpubParser.m; sourceTree = "<group>"; };
+		1DEB65891727FFEE00FDBDC3 /* KFEpubContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubContentModel.h; path = Sources/KFEpubContentModel.h; sourceTree = "<group>"; };
+		1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubContentModel.m; path = Sources/KFEpubContentModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +97,11 @@
 		1DEB65691727E18800FDBDC3 /* KFEpubKit */ = {
 			isa = PBXGroup;
 			children = (
+				1D4FFADE1728255100AA5D35 /* KFEpubKit.entitlements */,
 				1DEB65751727E18800FDBDC3 /* AppDelegate.h */,
 				1DEB65761727E18800FDBDC3 /* AppDelegate.m */,
 				1DEB65781727E18800FDBDC3 /* MainMenu.xib */,
+				1DEB65881727FC7100FDBDC3 /* Sources */,
 				1DEB656A1727E18800FDBDC3 /* Supporting Files */,
 			);
 			path = KFEpubKit;
@@ -93,6 +110,7 @@
 		1DEB656A1727E18800FDBDC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1DEB65821727E43400FDBDC3 /* Resources */,
 				1DEB656B1727E18800FDBDC3 /* KFEpubKit-Info.plist */,
 				1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */,
 				1DEB656F1727E18800FDBDC3 /* main.m */,
@@ -100,6 +118,29 @@
 				1DEB65721727E18800FDBDC3 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DEB65821727E43400FDBDC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1DEB65881727FC7100FDBDC3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1DEB65891727FFEE00FDBDC3 /* KFEpubContentModel.h */,
+				1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */,
+				1D4FFADB1728203C00AA5D35 /* KFEpubController.h */,
+				1D4FFADC1728203C00AA5D35 /* KFEpubController.m */,
+				1D4FFAD817280EC500AA5D35 /* KFEpubExtractor.h */,
+				1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */,
+				1DEB65851727FC6700FDBDC3 /* KFEpubParser.h */,
+				1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */,
+			);
+			name = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +197,7 @@
 				1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */,
 				1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */,
 				1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */,
+				1DEB65841727E43400FDBDC3 /* TDD-for-iOS.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +210,10 @@
 			files = (
 				1DEB65701727E18800FDBDC3 /* main.m in Sources */,
 				1DEB65771727E18800FDBDC3 /* AppDelegate.m in Sources */,
+				1DEB65871727FC6700FDBDC3 /* KFEpubParser.m in Sources */,
+				1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */,
+				1D4FFADA17280EC500AA5D35 /* KFEpubExtractor.m in Sources */,
+				1D4FFADD1728203C00AA5D35 /* KFEpubController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +309,8 @@
 		1DEB657E1727E18800FDBDC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
@@ -275,6 +323,8 @@
 		1DEB657F1727E18800FDBDC3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
@@ -303,6 +353,7 @@
 				1DEB657F1727E18800FDBDC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
