@@ -38,6 +38,8 @@
 
 @property (nonatomic, readonly, strong) NSURL *destinationURL;
 
+@property (nonatomic, readonly, strong) NSURL *epubContentBaseURL;
+
 @property (nonatomic, readonly, strong) KFEpubContentModel *contentModel;
 
 

@@ -62,6 +62,8 @@
 {
     self.parser = [KFEpubParser new];
     NSURL *rootFile = [self.parser rootFileForBaseURL:self.destinationURL];
+    _epubContentBaseURL = [rootFile URLByDeletingLastPathComponent];
+    
     NSError *error = nil;
     NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:rootFile options:kNilOptions error:&error];
     if (document)
