@@ -11,6 +11,10 @@
 #import "KFEpubParser.h"
 #import "KFEpubContentModel.h"
 
+
+NSString *const KFEpubKitErrorDomain = @"KFEpubKitErrorDomain";
+
+
 @interface KFEpubController ()<KFEpubExtractorDelegate>
 
 
@@ -67,20 +71,29 @@
         _contentModel = [KFEpubContentModel new];
         
         self.contentModel.metaData = [self.parser metaDataFromDocument:document];
-        self.contentModel.manifest = [self.parser manifestFromDocument:document];
-        self.contentModel.spine = [self.parser spineFromDocument:document];
         
-        [_contentModel.spine enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop)
+        if (!self.contentModel.metaData)
         {
-            if (idx > 0)
+            NSError *error = [NSError errorWithDomain:KFEpubKitErrorDomain code:1 userInfo:@{NSLocalizedDescriptionKey: @"No meta data found"}];
+            [self.delegate epubController:self didFailWithError:error];
+        }
+        else
+        {
+            self.contentModel.manifest = [self.parser manifestFromDocument:document];
+            self.contentModel.spine = [self.parser spineFromDocument:document];
+            
+            [_contentModel.spine enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop)
+             {
+                 if (idx > 0)
+                 {
+                     NSLog(@"%@", self.contentModel.manifest[item]);
+                 }
+             }];
+            
+            if (self.delegate)
             {
-                NSLog(@"%@", self.contentModel.manifest[item]);
+                [self.delegate epubController:self didOpenEpub:self.contentModel];
             }
-        }];
-        
-        if (self.delegate)
-        {
-            [self.delegate epubController:self didOpenEpub:self.contentModel];
         }
     }
 }

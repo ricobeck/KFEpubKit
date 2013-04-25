@@ -66,11 +66,14 @@
     
     if (metaNodes.count == 1)
     {
-        NSArray *metaElements = ((NSXMLElement *)metaNodes[0]).children;
+        NSXMLElement *metaNode = metaNodes[0];
+        NSArray *metaElements = metaNode.children;
+
         for (NSXMLElement* xmlElement in metaElements)
         {
             NSString *nodeName = xmlElement.name;
             NSArray *nodeNameComponents = [nodeName componentsSeparatedByString:@":"];
+            
             if (nodeNameComponents.count > 1)
             {
                 nodeName = nodeNameComponents[1];
@@ -96,7 +99,16 @@
     if (spineNodes.count == 1)
     {
         NSXMLElement *spineElement = spineNodes[0];
-        [spine addObject:[spineElement attributeForName:@"toc"]];
+        
+        NSString *toc = [[spineElement attributeForName:@"toc"] stringValue];
+        if (toc)
+        {
+            [spine addObject:toc];
+        }
+        else
+        {
+            [spine addObject:@""];
+        }
         NSArray *spineElements = spineElement.children;
         for (NSXMLElement* xmlElement in spineElements)
         {
@@ -126,7 +138,20 @@
             NSString *href = [[xmlElement attributeForName:@"href"] stringValue];
             NSString *itemId = [[xmlElement attributeForName:@"id"] stringValue];
             NSString *mediaType = [[xmlElement attributeForName:@"media-type"] stringValue];
-            manifest[itemId] = @{@"href": href, @"media":mediaType};
+            
+            if (itemId)
+            {
+                NSMutableDictionary *items = [NSMutableDictionary new];
+                if (href)
+                {
+                    items[@"href"] = href;
+                }
+                if (mediaType)
+                {
+                    items[@"media"] = mediaType;
+                }
+                manifest[itemId] = items;
+            }
         }
     }
     else

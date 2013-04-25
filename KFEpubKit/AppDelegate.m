@@ -99,12 +99,14 @@
 - (void)epubController:(KFEpubController *)controller didOpenEpub:(KFEpubContentModel *)contentModel
 {
     self.window.title = contentModel.metaData[@"title"];
+    //[self.libraryURL stopAccessingSecurityScopedResource];
 }
 
 
 - (void)epubController:(KFEpubController *)controller didFailWithError:(NSError *)error
 {
     NSLog(@"epubController:didFailWithError: %@", error.description);
+    //[self.libraryURL stopAccessingSecurityScopedResource];
 }
 
 @end

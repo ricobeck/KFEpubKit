@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 
+extern NSString *const KFEpubKitErrorDomain;
+
+
 @class KFEpubController;
 @class KFEpubContentModel;
 
