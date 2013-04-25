@@ -7,12 +7,10 @@
 //
 
 #import "KFEpubController.h"
+#import "KFEpubConstants.h"
 #import "KFEpubExtractor.h"
 #import "KFEpubParser.h"
 #import "KFEpubContentModel.h"
-
-
-NSString *const KFEpubKitErrorDomain = @"KFEpubKitErrorDomain";
 
 
 @interface KFEpubController ()<KFEpubExtractorDelegate>
@@ -40,11 +38,11 @@ NSString *const KFEpubKitErrorDomain = @"KFEpubKitErrorDomain";
 }
 
 
-- (void)open
+- (void)openAsynchronous:(BOOL)asynchronous
 {
     self.extractor = [[KFEpubExtractor alloc] initWithEpubURL:self.epubURL andDestinationURL:self.destinationURL];
     self.extractor.delegate = self;
-    [self.extractor start];
+    [self.extractor start:asynchronous];
 }
 
 
@@ -81,15 +79,8 @@ NSString *const KFEpubKitErrorDomain = @"KFEpubKitErrorDomain";
         {
             self.contentModel.manifest = [self.parser manifestFromDocument:document];
             self.contentModel.spine = [self.parser spineFromDocument:document];
-            
-            [_contentModel.spine enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop)
-             {
-                 if (idx > 0)
-                 {
-                     NSLog(@"%@", self.contentModel.manifest[item]);
-                 }
-             }];
-            
+            self.contentModel.guide = [self.parser guideFromDocument:document];
+
             if (self.delegate)
             {
                 [self.delegate epubController:self didOpenEpub:self.contentModel];

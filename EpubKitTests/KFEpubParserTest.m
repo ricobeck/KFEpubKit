@@ -48,6 +48,13 @@
 }
 
 
+- (void)testMetaDataFromValidDocumentWithComments
+{
+    NSDictionary *metaData = [self.epubParser metaDataFromDocument:[self documentNamed:@"valid-comments.opf"]];
+    GHAssertNotNil(metaData[@"title"], @"title must not be nil");
+}
+
+
 - (void)testMetaDataFromNilDocument
 {
     NSDictionary *metaData = [self.epubParser metaDataFromDocument:nil];
@@ -102,7 +109,21 @@
 - (void)testManifestFromInvalidDocument
 {
     NSDictionary *manifest = [self.epubParser manifestFromDocument:[self documentNamed:@"invalid-manifest.opf"]];
-    GHAssertNotNil(manifest, @"manifest must be nil for nil as document parameter");
+    GHAssertNotNil(manifest, @"manifest must not be nil for nil as document parameter");
+}
+
+
+- (void)testGuideFromValidDocument
+{
+    NSArray *guide = [self.epubParser guideFromDocument:[self documentNamed:@"valid.opf"]];
+    GHAssertNotNil(guide, @"guide must not be nil for a valid document");
+}
+
+
+- (void)testGuideFromNilDocument
+{
+    NSArray *guide = [self.epubParser guideFromDocument:[self documentNamed:nil]];
+    GHAssertNil(guide, @"guide must be nil for a valid document");
 }
 
 

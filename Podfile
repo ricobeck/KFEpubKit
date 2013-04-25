@@ -9,4 +9,5 @@ end
 target 'KFEpubKit Tests', :exclusive => true do
     pod 'SSZipArchive'
     pod 'GHUnitOSX'
+    pod 'OCMock'
 end

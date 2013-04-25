@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 
 
-extern NSString *const KFEpubKitErrorDomain;
-
-
 @class KFEpubController;
 @class KFEpubContentModel;
 
@@ -46,7 +43,7 @@ extern NSString *const KFEpubKitErrorDomain;
 
 - (instancetype)initWithEpubURL:(NSURL *)epubURL andDestinationFolder:(NSURL *)destinationURL;
 
-- (void)open;
+- (void)openAsynchronous:(BOOL)asynchronous;
 
 
 @end

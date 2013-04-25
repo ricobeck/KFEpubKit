@@ -78,12 +78,12 @@
 
 - (void)testEpubsInMainBundleResources
 {
-    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"TDD-for-iOS" withExtension:@"epub"];
+    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"tolstoy-war-and-peace" withExtension:@"epub"];
     
     [self.libraryURL startAccessingSecurityScopedResource];
     self.epubController = [[KFEpubController alloc] initWithEpubURL:epubURL andDestinationFolder:self.libraryURL];
     self.epubController.delegate = self;
-    [self.epubController open];
+    [self.epubController openAsynchronous:YES];
 }
 
 
@@ -99,6 +99,7 @@
 - (void)epubController:(KFEpubController *)controller didOpenEpub:(KFEpubContentModel *)contentModel
 {
     self.window.title = contentModel.metaData[@"title"];
+    NSLog(@"start: %@", contentModel.guide[0][@"href"]);
     //[self.libraryURL stopAccessingSecurityScopedResource];
 }
 

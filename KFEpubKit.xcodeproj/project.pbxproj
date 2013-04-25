@@ -24,6 +24,15 @@
 		1D4FFB0017291D4C00AA5D35 /* valid.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFAFF17291D4C00AA5D35 /* valid.opf */; };
 		1D4FFB031729251A00AA5D35 /* invalid-toc.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB021729251A00AA5D35 /* invalid-toc.opf */; };
 		1D4FFB0517292EA500AA5D35 /* invalid-manifest.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB0417292EA500AA5D35 /* invalid-manifest.opf */; };
+		1D4FFB091729383E00AA5D35 /* KFEpubExtractorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB081729383E00AA5D35 /* KFEpubExtractorTest.m */; };
+		1D4FFB0B17293ABB00AA5D35 /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB0A17293ABA00AA5D35 /* tolstoy-war-and-peace.epub */; };
+		1D4FFB14172979E600AA5D35 /* KFEpubControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB13172979E600AA5D35 /* KFEpubControllerTest.m */; };
+		1D4FFB1717297ABB00AA5D35 /* KFEpubTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1617297ABB00AA5D35 /* KFEpubTestUtils.m */; };
+		1D4FFB1A172983BC00AA5D35 /* KFEpubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB19172983BC00AA5D35 /* KFEpubKit.m */; };
+		1D4FFB1D1729846A00AA5D35 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
+		1D4FFB1E172984B900AA5D35 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
+		1D4FFB21172989E300AA5D35 /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */; };
+		1D4FFB231729918900AA5D35 /* valid-comments.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB221729918900AA5D35 /* valid-comments.opf */; };
 		1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
 		1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
 		1DEB65701727E18800FDBDC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB656F1727E18800FDBDC3 /* main.m */; };
@@ -51,6 +60,17 @@
 		1D4FFAFF17291D4C00AA5D35 /* valid.opf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = valid.opf; sourceTree = "<group>"; };
 		1D4FFB021729251A00AA5D35 /* invalid-toc.opf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "invalid-toc.opf"; sourceTree = "<group>"; };
 		1D4FFB0417292EA500AA5D35 /* invalid-manifest.opf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "invalid-manifest.opf"; sourceTree = "<group>"; };
+		1D4FFB081729383E00AA5D35 /* KFEpubExtractorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFEpubExtractorTest.m; sourceTree = "<group>"; };
+		1D4FFB0A17293ABA00AA5D35 /* tolstoy-war-and-peace.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tolstoy-war-and-peace.epub"; sourceTree = "<group>"; };
+		1D4FFB13172979E600AA5D35 /* KFEpubControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFEpubControllerTest.m; sourceTree = "<group>"; };
+		1D4FFB1517297ABB00AA5D35 /* KFEpubTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFEpubTestUtils.h; sourceTree = "<group>"; };
+		1D4FFB1617297ABB00AA5D35 /* KFEpubTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFEpubTestUtils.m; sourceTree = "<group>"; };
+		1D4FFB18172983BC00AA5D35 /* KFEpubKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubKit.h; path = Sources/KFEpubKit.h; sourceTree = "<group>"; };
+		1D4FFB19172983BC00AA5D35 /* KFEpubKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubKit.m; path = Sources/KFEpubKit.m; sourceTree = "<group>"; };
+		1D4FFB1B1729846900AA5D35 /* KFEpubConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubConstants.h; path = Sources/KFEpubConstants.h; sourceTree = "<group>"; };
+		1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubConstants.m; path = Sources/KFEpubConstants.m; sourceTree = "<group>"; };
+		1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tolstoy-war-and-peace.epub"; sourceTree = "<group>"; };
+		1D4FFB221729918900AA5D35 /* valid-comments.opf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "valid-comments.opf"; sourceTree = "<group>"; };
 		1DEB65601727E18800FDBDC3 /* KFEpubKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFEpubKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEB65631727E18800FDBDC3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1DEB65661727E18800FDBDC3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -100,7 +120,7 @@
 		1D4FFAF617290E1700AA5D35 /* EpubKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D4FFAFC17291A1500AA5D35 /* KFEpubParserTest.m */,
+				1D4FFB061729321F00AA5D35 /* Sources */,
 				1D4FFB0117291D5600AA5D35 /* Supporting Files */,
 				1D4FFAFE17291D4C00AA5D35 /* Resources */,
 			);
@@ -110,9 +130,8 @@
 		1D4FFAFE17291D4C00AA5D35 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1D4FFB0417292EA500AA5D35 /* invalid-manifest.opf */,
-				1D4FFB021729251A00AA5D35 /* invalid-toc.opf */,
-				1D4FFAFF17291D4C00AA5D35 /* valid.opf */,
+				1D4FFB0C17293AC200AA5D35 /* OPF Files */,
+				1D4FFB0D17293ACC00AA5D35 /* EPUBs */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -124,6 +143,37 @@
 				1D4FFAF717290E1700AA5D35 /* KFEpubKitTests-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D4FFB061729321F00AA5D35 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1D4FFB13172979E600AA5D35 /* KFEpubControllerTest.m */,
+				1D4FFB081729383E00AA5D35 /* KFEpubExtractorTest.m */,
+				1D4FFAFC17291A1500AA5D35 /* KFEpubParserTest.m */,
+				1D4FFB1517297ABB00AA5D35 /* KFEpubTestUtils.h */,
+				1D4FFB1617297ABB00AA5D35 /* KFEpubTestUtils.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		1D4FFB0C17293AC200AA5D35 /* OPF Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D4FFB0417292EA500AA5D35 /* invalid-manifest.opf */,
+				1D4FFB021729251A00AA5D35 /* invalid-toc.opf */,
+				1D4FFB221729918900AA5D35 /* valid-comments.opf */,
+				1D4FFAFF17291D4C00AA5D35 /* valid.opf */,
+			);
+			name = "OPF Files";
+			sourceTree = "<group>";
+		};
+		1D4FFB0D17293ACC00AA5D35 /* EPUBs */ = {
+			isa = PBXGroup;
+			children = (
+				1D4FFB0A17293ABA00AA5D35 /* tolstoy-war-and-peace.epub */,
+			);
+			name = EPUBs;
 			sourceTree = "<group>";
 		};
 		1DEB65571727E18800FDBDC3 = {
@@ -198,6 +248,7 @@
 		1DEB65821727E43400FDBDC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */,
 				1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */,
 			);
 			path = Resources;
@@ -206,12 +257,16 @@
 		1DEB65881727FC7100FDBDC3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1D4FFB1B1729846900AA5D35 /* KFEpubConstants.h */,
+				1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */,
 				1DEB65891727FFEE00FDBDC3 /* KFEpubContentModel.h */,
 				1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */,
 				1D4FFADB1728203C00AA5D35 /* KFEpubController.h */,
 				1D4FFADC1728203C00AA5D35 /* KFEpubController.m */,
 				1D4FFAD817280EC500AA5D35 /* KFEpubExtractor.h */,
 				1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */,
+				1D4FFB18172983BC00AA5D35 /* KFEpubKit.h */,
+				1D4FFB19172983BC00AA5D35 /* KFEpubKit.m */,
 				1DEB65851727FC6700FDBDC3 /* KFEpubParser.h */,
 				1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */,
 			);
@@ -301,6 +356,8 @@
 				1D4FFB0017291D4C00AA5D35 /* valid.opf in Resources */,
 				1D4FFB031729251A00AA5D35 /* invalid-toc.opf in Resources */,
 				1D4FFB0517292EA500AA5D35 /* invalid-manifest.opf in Resources */,
+				1D4FFB0B17293ABB00AA5D35 /* tolstoy-war-and-peace.epub in Resources */,
+				1D4FFB231729918900AA5D35 /* valid-comments.opf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +369,7 @@
 				1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */,
 				1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */,
 				1DEB65841727E43400FDBDC3 /* TDD-for-iOS.epub in Resources */,
+				1D4FFB21172989E300AA5D35 /* tolstoy-war-and-peace.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +488,10 @@
 				1D4FFAE717290D9800AA5D35 /* KFEpubController.m in Sources */,
 				1D4FFAFA1729122E00AA5D35 /* GHUnitTestMain.m in Sources */,
 				1D4FFAFD17291A1500AA5D35 /* KFEpubParserTest.m in Sources */,
+				1D4FFB091729383E00AA5D35 /* KFEpubExtractorTest.m in Sources */,
+				1D4FFB14172979E600AA5D35 /* KFEpubControllerTest.m in Sources */,
+				1D4FFB1717297ABB00AA5D35 /* KFEpubTestUtils.m in Sources */,
+				1D4FFB1E172984B900AA5D35 /* KFEpubConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +505,8 @@
 				1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */,
 				1D4FFADA17280EC500AA5D35 /* KFEpubExtractor.m in Sources */,
 				1D4FFADD1728203C00AA5D35 /* KFEpubController.m in Sources */,
+				1D4FFB1A172983BC00AA5D35 /* KFEpubKit.m in Sources */,
+				1D4FFB1D1729846A00AA5D35 /* KFEpubConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

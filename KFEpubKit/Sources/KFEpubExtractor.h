@@ -15,12 +15,13 @@
 
 - (void)epubExtractorDidFinishExtracting:(KFEpubExtractor *)epubExtractor;
 
+- (void)epubExtractor:(KFEpubExtractor *)epubExtractor didFailWithError:(NSError *)error;
+
 @optional
 
 - (void)epubExtractorDidStartExtracting:(KFEpubExtractor *)epubExtractor;
 
-- (void)epubExtractor:(KFEpubExtractor *)epubExtractor didFailWithError:(NSError *)error;
-
+- (void)epubExtractorDidCancelExtraction:(KFEpubExtractor *)epubExtractor;
 
 @end
 
@@ -37,7 +38,7 @@
 
 - (id)initWithEpubURL:(NSURL *)epubURL andDestinationURL:(NSURL *)destinationURL;
 
-- (BOOL)start;
+- (BOOL)start:(BOOL)asynchronous;
 
 - (void)cancel;
 

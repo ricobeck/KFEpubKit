@@ -48,11 +48,11 @@
     }
     else if (count == 0)
     {
-        NSLog(@"no root file found");
+        NSLog(@"no root file found.");
     }
     else
     {
-        NSLog(@"there are more than one root files. this seems odd");
+        NSLog(@"there are more than one root files. this is odd.");
     }
     return nil;
 }
@@ -71,19 +71,22 @@
 
         for (NSXMLElement* xmlElement in metaElements)
         {
-            NSString *nodeName = xmlElement.name;
-            NSArray *nodeNameComponents = [nodeName componentsSeparatedByString:@":"];
-            
-            if (nodeNameComponents.count > 1)
+            if ([self isValidNode:xmlElement])
             {
-                nodeName = nodeNameComponents[1];
+                NSString *nodeName = xmlElement.name;
+                NSArray *nodeNameComponents = [nodeName componentsSeparatedByString:@":"];
+                
+                if (nodeNameComponents.count > 1)
+                {
+                    nodeName = nodeNameComponents[1];
+                }
+                metaData[nodeName] = xmlElement.stringValue;
             }
-            metaData[nodeName] = xmlElement.stringValue;
         }
     }
     else
     {
-        NSLog(@"no meta data found");
+        NSLog(@"meta data invalid");
         return nil;
     }
     return metaData;
@@ -112,12 +115,15 @@
         NSArray *spineElements = spineElement.children;
         for (NSXMLElement* xmlElement in spineElements)
         {
-            [spine addObject:[[xmlElement attributeForName:@"idref"] stringValue]];
+            if ([self isValidNode:xmlElement])
+            {
+                [spine addObject:[[xmlElement attributeForName:@"idref"] stringValue]];
+            }
         }
     }
     else
     {
-        NSLog(@"no spine data found");
+        NSLog(@"spine data invalid");
         return nil;
     }
     return spine;
@@ -135,31 +141,86 @@
         NSArray *itemElements = ((NSXMLElement *)manifestNodes[0]).children;
         for (NSXMLElement* xmlElement in itemElements)
         {
-            NSString *href = [[xmlElement attributeForName:@"href"] stringValue];
-            NSString *itemId = [[xmlElement attributeForName:@"id"] stringValue];
-            NSString *mediaType = [[xmlElement attributeForName:@"media-type"] stringValue];
-            
-            if (itemId)
+            if ([self isValidNode:xmlElement] && xmlElement.attributes)
             {
-                NSMutableDictionary *items = [NSMutableDictionary new];
-                if (href)
+                NSString *href = [[xmlElement attributeForName:@"href"] stringValue];
+                NSString *itemId = [[xmlElement attributeForName:@"id"] stringValue];
+                NSString *mediaType = [[xmlElement attributeForName:@"media-type"] stringValue];
+                
+                if (itemId)
                 {
-                    items[@"href"] = href;
+                    NSMutableDictionary *items = [NSMutableDictionary new];
+                    if (href)
+                    {
+                        items[@"href"] = href;
+                    }
+                    if (mediaType)
+                    {
+                        items[@"media"] = mediaType;
+                    }
+                    manifest[itemId] = items;
                 }
-                if (mediaType)
-                {
-                    items[@"media"] = mediaType;
-                }
-                manifest[itemId] = items;
             }
         }
     }
     else
     {
-        NSLog(@"no manifest data found");
+        NSLog(@"manifest data invalid");
         return nil;
     }
     return manifest;
+}
+
+
+- (NSArray *)guideFromDocument:(NSXMLDocument *)document
+{
+    NSMutableArray *guide = [NSMutableArray new];
+    NSXMLElement *root  = [document rootElement];
+    NSArray *guideNodes = [root nodesForXPath:@"//package/guide" error:nil];
+    
+    if (guideNodes.count == 1)
+    {
+        NSXMLElement *guideElement = guideNodes[0];
+        NSArray *referenceElements = guideElement.children;
+        
+        for (NSXMLElement* xmlElement in referenceElements)
+        {
+            if ([self isValidNode:xmlElement])
+            {
+                NSString *type = [[xmlElement attributeForName:@"type"] stringValue];
+                NSString *href = [[xmlElement attributeForName:@"href"] stringValue];
+                NSString *title = [[xmlElement attributeForName:@"title"] stringValue];
+                
+                NSMutableDictionary *reference = [NSMutableDictionary new];
+                if (type)
+                {
+                    reference[type] = type;
+                }
+                if (href)
+                {
+                    reference[@"href"] = href;
+                }
+                if (title)
+                {
+                    reference[@"title"] = title;
+                }
+                [guide addObject:reference];
+            }
+        }
+    }
+    else
+    {
+        NSLog(@"guide data invalid");
+        return nil;
+    }
+    
+    return guide;
+}
+
+
+- (BOOL)isValidNode:(NSXMLElement *)node
+{
+    return node.kind != NSXMLCommentKind;
 }
 
 

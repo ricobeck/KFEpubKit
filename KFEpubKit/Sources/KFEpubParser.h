@@ -23,5 +23,7 @@
 
 - (NSDictionary *)manifestFromDocument:(NSXMLDocument *)document;
 
+- (NSArray *)guideFromDocument:(NSXMLDocument *)document;
+
 
 @end
