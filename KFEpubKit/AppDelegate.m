@@ -67,6 +67,9 @@
         }
     }];
     
+    
+    self.textView.textContainerInset = NSMakeSize(40.0f, 40.0f);
+    
     NSData *securityBookmark = [[NSUserDefaults standardUserDefaults] objectForKey:@"appDirectory"];
     if (!securityBookmark)
     {
@@ -119,7 +122,7 @@
 
 - (void)testEpubsInMainBundleResources
 {
-    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"TDD-for-iOS" withExtension:@"epub"];
+    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"tolstoy-war-and-peace" withExtension:@"epub"];
     
     [self.libraryURL startAccessingSecurityScopedResource];
     self.epubController = [[KFEpubController alloc] initWithEpubURL:epubURL andDestinationFolder:self.libraryURL];

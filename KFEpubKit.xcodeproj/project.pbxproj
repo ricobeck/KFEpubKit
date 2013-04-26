@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1D4FFADA17280EC500AA5D35 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
 		1D4FFADD1728203C00AA5D35 /* KFEpubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFADC1728203C00AA5D35 /* KFEpubController.m */; };
-		1D4FFAE317290D9800AA5D35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65761727E18800FDBDC3 /* AppDelegate.m */; };
 		1D4FFAE417290D9800AA5D35 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
 		1D4FFAE517290D9800AA5D35 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
 		1D4FFAE617290D9800AA5D35 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
@@ -18,7 +17,6 @@
 		1D4FFAEC17290D9800AA5D35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
 		1D4FFAED17290D9800AA5D35 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65721727E18800FDBDC3 /* Credits.rtf */; };
 		1D4FFAEE17290D9800AA5D35 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65781727E18800FDBDC3 /* MainMenu.xib */; };
-		1D4FFAEF17290D9800AA5D35 /* TDD-for-iOS.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */; };
 		1D4FFAFA1729122E00AA5D35 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAF91729122E00AA5D35 /* GHUnitTestMain.m */; };
 		1D4FFAFD17291A1500AA5D35 /* KFEpubParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAFC17291A1500AA5D35 /* KFEpubParserTest.m */; };
 		1D4FFB0017291D4C00AA5D35 /* valid.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFAFF17291D4C00AA5D35 /* valid.opf */; };
@@ -39,7 +37,6 @@
 		1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65721727E18800FDBDC3 /* Credits.rtf */; };
 		1DEB65771727E18800FDBDC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65761727E18800FDBDC3 /* AppDelegate.m */; };
 		1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65781727E18800FDBDC3 /* MainMenu.xib */; };
-		1DEB65841727E43400FDBDC3 /* TDD-for-iOS.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */; };
 		1DEB65871727FC6700FDBDC3 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
 		1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
 		5B1C560EB2C844A39C937FFB /* libPods-KFEpubKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9236CF0F044D65B0827915 /* libPods-KFEpubKit.a */; };
@@ -84,7 +81,6 @@
 		1DEB65751727E18800FDBDC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DEB65761727E18800FDBDC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1DEB65791727E18800FDBDC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TDD-for-iOS.epub"; sourceTree = "<group>"; };
 		1DEB65851727FC6700FDBDC3 /* KFEpubParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubParser.h; path = Sources/KFEpubParser.h; sourceTree = "<group>"; };
 		1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubParser.m; path = Sources/KFEpubParser.m; sourceTree = "<group>"; };
 		1DEB65891727FFEE00FDBDC3 /* KFEpubContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubContentModel.h; path = Sources/KFEpubContentModel.h; sourceTree = "<group>"; };
@@ -249,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */,
-				1DEB65831727E43400FDBDC3 /* TDD-for-iOS.epub */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -352,7 +347,6 @@
 				1D4FFAEC17290D9800AA5D35 /* InfoPlist.strings in Resources */,
 				1D4FFAED17290D9800AA5D35 /* Credits.rtf in Resources */,
 				1D4FFAEE17290D9800AA5D35 /* MainMenu.xib in Resources */,
-				1D4FFAEF17290D9800AA5D35 /* TDD-for-iOS.epub in Resources */,
 				1D4FFB0017291D4C00AA5D35 /* valid.opf in Resources */,
 				1D4FFB031729251A00AA5D35 /* invalid-toc.opf in Resources */,
 				1D4FFB0517292EA500AA5D35 /* invalid-manifest.opf in Resources */,
@@ -368,7 +362,6 @@
 				1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */,
 				1DEB65741727E18800FDBDC3 /* Credits.rtf in Resources */,
 				1DEB657A1727E18800FDBDC3 /* MainMenu.xib in Resources */,
-				1DEB65841727E43400FDBDC3 /* TDD-for-iOS.epub in Resources */,
 				1D4FFB21172989E300AA5D35 /* tolstoy-war-and-peace.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,7 +474,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D4FFAE317290D9800AA5D35 /* AppDelegate.m in Sources */,
 				1D4FFAE417290D9800AA5D35 /* KFEpubParser.m in Sources */,
 				1D4FFAE517290D9800AA5D35 /* KFEpubContentModel.m in Sources */,
 				1D4FFAE617290D9800AA5D35 /* KFEpubExtractor.m in Sources */,

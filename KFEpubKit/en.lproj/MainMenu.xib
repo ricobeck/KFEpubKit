@@ -1321,7 +1321,7 @@
 											<string key="NSFrameSize">{480, 276}</string>
 											<reference key="NSSuperview" ref="1026740791"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="483081209"/>
+											<reference key="NSNextKeyView" ref="576211088"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<object class="NSTextContainer" key="NSTextContainer" id="462234954">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1342,7 +1342,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">11621</int>
+												<int key="NSFlags">3429</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<object class="NSColor" key="NSBackgroundColor">
@@ -1390,8 +1390,14 @@
 													<integer value="1" key="NSUnderline"/>
 												</dictionary>
 												<nil key="NSDefaultParagraphStyle"/>
-												<nil key="NSTextFinder"/>
-												<int key="NSPreferredTextFinderStyle">1</int>
+												<object class="NSTextFinder" key="NSTextFinder">
+													<reference key="NSTextFinderClient" ref="193434590"/>
+													<reference key="NSFindBarContainer" ref="846443415"/>
+													<int key="NSTextFinderStyle">2</int>
+													<bool key="NSIncrementalSearchingEnabled">NO</bool>
+													<bool key="NSIncrementalSearchingShouldDimContentView">YES</bool>
+												</object>
+												<int key="NSPreferredTextFinderStyle">2</int>
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{480, 10000000}</string>
@@ -1456,7 +1462,7 @@
 							<string key="NSFrame">{{0, 40}, {480, 276}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="576211088"/>
+							<reference key="NSNextKeyView" ref="1026740791"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133136</int>
 							<reference key="NSVScroller" ref="483081209"/>
@@ -1481,7 +1487,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="846443415"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
 				<bool key="NSWindowIsRestorable">YES</bool>
