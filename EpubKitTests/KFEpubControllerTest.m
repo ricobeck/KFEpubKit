@@ -9,8 +9,12 @@
 #import <OCMock/OCMock.h>
 #import "KFEpubTestUtils.h"
 #import "KFEpubController.h"
+#import "KFEpubConstants.h"
+#import "KFEpubContentModel.h"
+
 
 @interface KFEpubControllerTest : GHTestCase
+
 
 @end
 
@@ -41,6 +45,16 @@
     
     [epubController openAsynchronous:NO];
     GHAssertNoThrow([mockDelegate verify], @"epubController:didFailWithError: was not called");
+}
+
+
+- (void)testBookTypeFromEpub
+{
+    KFEpubController *epubController = [[KFEpubController alloc] initWithEpubURL:[KFEpubTestUtils epubNamed:@"tolstoy-war-and-peace.epub"] andDestinationFolder:[KFEpubTestUtils tempDirectory]];
+    [epubController openAsynchronous:NO];
+    
+    KFEpubKitBookType bookType = epubController.contentModel.bookType;
+    GHAssertEquals(bookType, KFEpubKitBookTypeEpub2, @"book type should be epub");
 }
 
 

@@ -12,6 +12,15 @@
 extern NSString *const KFEpubKitErrorDomain;
 
 
+typedef NS_ENUM(NSUInteger, KFEpubKitBookType)
+{
+    KFEpubKitBookTypeUnknown,
+    KFEpubKitBookTypeEpub2,
+    KFEpubKitBookTypeEpub3,
+    KFEpubKitBookTypeiBook
+};
+
+
 @interface KFEpubConstants : NSObject
 
 @end

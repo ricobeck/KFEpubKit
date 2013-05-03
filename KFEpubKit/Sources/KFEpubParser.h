@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KFEpubConstants.h"
 
 @class KFEpubParser;
 @class KFEpubContentModel;
@@ -14,6 +15,8 @@
 
 @interface KFEpubParser : NSObject
 
+
+- (KFEpubKitBookType)bookTypeForBaseURL:(NSURL *)baseURL;
 
 - (NSURL *)rootFileForBaseURL:(NSURL *)baseURL;
 

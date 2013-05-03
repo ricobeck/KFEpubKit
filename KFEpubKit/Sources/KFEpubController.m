@@ -70,6 +70,7 @@
     {
         _contentModel = [KFEpubContentModel new];
         
+        self.contentModel.bookType = [self.parser bookTypeForBaseURL:self.destinationURL];
         self.contentModel.metaData = [self.parser metaDataFromDocument:document];
         
         if (!self.contentModel.metaData)

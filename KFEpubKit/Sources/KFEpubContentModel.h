@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KFEpubConstants.h"
 
 @interface KFEpubContentModel : NSObject
 
 
+@property (nonatomic) KFEpubKitBookType bookType;
 @property (nonatomic, strong) NSDictionary *metaData;
 @property (nonatomic, strong) NSDictionary *manifest;
 @property (nonatomic, strong) NSArray *spine;

@@ -23,13 +23,46 @@
 @end
 
 
+#define kMimeTypeEpub @"application/epub+zip"
+#define kMimeTypeiBooks @"application/x-ibooks+zip"
+
+
 @implementation KFEpubParser
+
+
+- (KFEpubKitBookType)bookTypeForBaseURL:(NSURL *)baseURL
+{
+    NSError *error = nil;
+    KFEpubKitBookType bookType = KFEpubKitBookTypeUnknown;
+    
+    NSURL *mimetypeURL = [baseURL URLByAppendingPathComponent:@"mimetype"];
+    NSString *mimetype = [[NSString alloc] initWithContentsOfURL:mimetypeURL encoding:NSASCIIStringEncoding error:&error];
+    
+    if (error)
+    {
+        return bookType;
+    }
+    
+    NSRange mimeRange = [mimetype rangeOfString:kMimeTypeEpub];
+    
+    if (mimeRange.location == 0 && mimeRange.length == 20)
+    {
+        bookType = KFEpubKitBookTypeEpub2;
+    }
+    else if ([mimetype isEqualToString:kMimeTypeiBooks])
+    {
+        bookType = KFEpubKitBookTypeiBook;
+    }
+    
+    return bookType;
+}
 
 
 - (NSURL *)rootFileForBaseURL:(NSURL *)baseURL
 {
-    NSURL *containerURL = [[baseURL URLByAppendingPathComponent:@"META-INF"] URLByAppendingPathComponent:@"container.xml"];
     NSError *error = nil;
+    NSURL *containerURL = [[baseURL URLByAppendingPathComponent:@"META-INF"] URLByAppendingPathComponent:@"container.xml"];
+    
     NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:containerURL options:kNilOptions error:&error];
     NSXMLElement *root  = [document rootElement];
     NSArray* objectElements = [root nodesForXPath:@"//container/rootfiles/rootfile" error:nil];
@@ -73,14 +106,7 @@
         {
             if ([self isValidNode:xmlElement])
             {
-                NSString *nodeName = xmlElement.name;
-                NSArray *nodeNameComponents = [nodeName componentsSeparatedByString:@":"];
-                
-                if (nodeNameComponents.count > 1)
-                {
-                    nodeName = nodeNameComponents[1];
-                }
-                metaData[nodeName] = xmlElement.stringValue;
+                metaData[xmlElement.localName] = xmlElement.stringValue;
             }
         }
     }
