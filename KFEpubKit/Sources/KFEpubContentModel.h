@@ -13,7 +13,10 @@
 
 
 @property (nonatomic) KFEpubKitBookType bookType;
+@property (nonatomic) KFEpubKitBookEncryption bookEncryption;
+
 @property (nonatomic, strong) NSDictionary *metaData;
+@property (nonatomic, strong) NSString *coverPath;
 @property (nonatomic, strong) NSDictionary *manifest;
 @property (nonatomic, strong) NSArray *spine;
 @property (nonatomic, strong) NSArray *guide;

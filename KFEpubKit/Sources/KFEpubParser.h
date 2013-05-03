@@ -10,7 +10,6 @@
 #import "KFEpubConstants.h"
 
 @class KFEpubParser;
-@class KFEpubContentModel;
 
 
 @interface KFEpubParser : NSObject
@@ -18,7 +17,11 @@
 
 - (KFEpubKitBookType)bookTypeForBaseURL:(NSURL *)baseURL;
 
+- (KFEpubKitBookEncryption)contentEncryptionForBaseURL:(NSURL *)baseURL;
+
 - (NSURL *)rootFileForBaseURL:(NSURL *)baseURL;
+
+- (NSString *)coverPathComponentFromDocument:(NSXMLDocument *)document;
 
 - (NSDictionary *)metaDataFromDocument:(NSXMLDocument *)document;
 

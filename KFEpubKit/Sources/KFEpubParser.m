@@ -7,7 +7,6 @@
 //
 
 #import "KFEpubParser.h"
-#import "KFEpubContentModel.h"
 
 
 @interface KFEpubParser ()
@@ -15,7 +14,6 @@
 
 @property (strong) NSXMLParser *parser;
 @property (strong) NSString *rootPath;
-@property (strong) KFEpubContentModel *contentModel;
 @property (strong) NSMutableDictionary *items;
 @property (strong) NSMutableArray *spinearray;
 
@@ -58,6 +56,28 @@
 }
 
 
+- (KFEpubKitBookEncryption)contentEncryptionForBaseURL:(NSURL *)baseURL
+{
+    NSURL *containerURL = [[baseURL URLByAppendingPathComponent:@"META-INF"] URLByAppendingPathComponent:@"sinf.xml"];
+    NSError *error = nil;
+    NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:containerURL options:kNilOptions error:&error];
+    
+    if (error)
+    {
+        return KFEpubKitBookEnryptionNone;
+    }
+    NSArray *sinfNodes = [document.rootElement nodesForXPath:@"//fairplay:sinf" error:&error];
+    if (sinfNodes == nil || sinfNodes.count == 0)
+    {
+        return KFEpubKitBookEnryptionNone;
+    }
+    else
+    {
+        return KFEpubKitBookEnryptionFairplay;
+    }
+}
+
+
 - (NSURL *)rootFileForBaseURL:(NSURL *)baseURL
 {
     NSError *error = nil;
@@ -89,6 +109,53 @@
     }
     return nil;
 }
+
+
+- (NSString *)coverPathComponentFromDocument:(NSXMLDocument *)document
+{
+    NSString *coverPath;
+    NSXMLElement *root  = [document rootElement];
+    NSArray *metaNodes = [root nodesForXPath:@"//item[@properties='cover-image']" error:nil];
+    
+    if (metaNodes)
+    {
+        coverPath = [[metaNodes.lastObject attributeForName:@"href"] stringValue];
+    }
+    
+    if (!coverPath)
+    {
+        NSString *coverItemId;
+        
+        metaNodes = [root nodesForXPath:@"//meta" error:nil];
+        for (NSXMLElement *xmlElement in metaNodes)
+        {
+            if ([[xmlElement attributeForName:@"name"].stringValue compare:@"cover" options:NSCaseInsensitiveSearch] == NSOrderedSame)
+            {
+                coverItemId = [xmlElement attributeForName:@"content"].stringValue;
+            }
+        }
+        
+        if (!coverItemId)
+        {
+            return nil;
+        }
+        else
+        {
+            NSArray *itemNodes = [root nodesForXPath:@"//item" error:nil];
+            
+            for (NSXMLElement *itemElement in itemNodes)
+            {
+                if ([[itemElement attributeForName:@"id"].stringValue compare:coverItemId options:NSCaseInsensitiveSearch] == NSOrderedSame)
+                {
+                    coverPath = [itemElement attributeForName:@"href"].stringValue;
+                }
+            }
+            
+        }
+    }
+    return coverPath;
+}
+
 
 
 - (NSDictionary *)metaDataFromDocument:(NSXMLDocument *)document

@@ -21,6 +21,13 @@ typedef NS_ENUM(NSUInteger, KFEpubKitBookType)
 };
 
 
+typedef NS_ENUM(NSUInteger, KFEpubKitBookEncryption)
+{
+    KFEpubKitBookEnryptionNone,
+    KFEpubKitBookEnryptionFairplay
+};
+
+
 @interface KFEpubConstants : NSObject
 
 @end

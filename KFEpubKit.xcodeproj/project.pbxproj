@@ -31,6 +31,7 @@
 		1D4FFB1E172984B900AA5D35 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
 		1D4FFB21172989E300AA5D35 /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */; };
 		1D4FFB231729918900AA5D35 /* valid-comments.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB221729918900AA5D35 /* valid-comments.opf */; };
+		1DC73F111733FA6900C87195 /* Winnie-the-Pooh.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1DC73F101733FA6900C87195 /* Winnie-the-Pooh.epub */; };
 		1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
 		1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
 		1DEB65701727E18800FDBDC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB656F1727E18800FDBDC3 /* main.m */; };
@@ -68,6 +69,7 @@
 		1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubConstants.m; path = Sources/KFEpubConstants.m; sourceTree = "<group>"; };
 		1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tolstoy-war-and-peace.epub"; sourceTree = "<group>"; };
 		1D4FFB221729918900AA5D35 /* valid-comments.opf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "valid-comments.opf"; sourceTree = "<group>"; };
+		1DC73F101733FA6900C87195 /* Winnie-the-Pooh.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Winnie-the-Pooh.epub"; sourceTree = "<group>"; };
 		1DEB65601727E18800FDBDC3 /* KFEpubKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFEpubKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEB65631727E18800FDBDC3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1DEB65661727E18800FDBDC3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -167,6 +169,7 @@
 		1D4FFB0D17293ACC00AA5D35 /* EPUBs */ = {
 			isa = PBXGroup;
 			children = (
+				1DC73F101733FA6900C87195 /* Winnie-the-Pooh.epub */,
 				1D4FFB0A17293ABA00AA5D35 /* tolstoy-war-and-peace.epub */,
 			);
 			name = EPUBs;
@@ -352,6 +355,7 @@
 				1D4FFB0517292EA500AA5D35 /* invalid-manifest.opf in Resources */,
 				1D4FFB0B17293ABB00AA5D35 /* tolstoy-war-and-peace.epub in Resources */,
 				1D4FFB231729918900AA5D35 /* valid-comments.opf in Resources */,
+				1DC73F111733FA6900C87195 /* Winnie-the-Pooh.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

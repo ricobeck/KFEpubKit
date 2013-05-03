@@ -58,4 +58,35 @@
 }
 
 
+- (void)testEncryptionDetectionWithFairplay
+{
+    KFEpubController *epubController = [[KFEpubController alloc] initWithEpubURL:[KFEpubTestUtils epubNamed:@"Winnie-the-Pooh.epub"] andDestinationFolder:[KFEpubTestUtils tempDirectory]];
+    [epubController openAsynchronous:NO];
+    
+    KFEpubKitBookEncryption bookEncryption = epubController.contentModel.bookEncryption;
+    GHAssertEquals(bookEncryption, KFEpubKitBookEnryptionFairplay, @"book encryption must be fairplay");
+}
+
+
+- (void)testEncryptionDetectionWithUnencryptedBook
+{
+    KFEpubController *epubController = [[KFEpubController alloc] initWithEpubURL:[KFEpubTestUtils epubNamed:@"tolstoy-war-and-peace.epub"] andDestinationFolder:[KFEpubTestUtils tempDirectory]];
+    [epubController openAsynchronous:NO];
+    
+    KFEpubKitBookEncryption bookEncryption = epubController.contentModel.bookEncryption;
+    GHAssertEquals(bookEncryption, KFEpubKitBookEnryptionNone, @"book encryption must be none");
+}
+
+
+- (void)testCoverImagePathWithBookContainingMetaElement
+{
+    KFEpubController *epubController = [[KFEpubController alloc] initWithEpubURL:[KFEpubTestUtils epubNamed:@"Winnie-the-Pooh.epub"] andDestinationFolder:[KFEpubTestUtils tempDirectory]];
+    [epubController openAsynchronous:NO];
+    
+    NSString *coverImage = epubController.contentModel.coverPath;
+    GHAssertNotNil(coverImage, @"cover path must not be nil for a book containing valid meta data");
+    GHAssertEqualStrings(coverImage, @"images/cover.jpg", @"cover image path is wrong.");
+}
+
+
 @end
