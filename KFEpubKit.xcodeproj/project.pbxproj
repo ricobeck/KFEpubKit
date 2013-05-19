@@ -46,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		0F12443EF7044523A4B55C0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		1D4CF0421748F173006D3281 /* KFEpubKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KFEpubKit.podspec; sourceTree = "<group>"; };
+		1D4CF0431748F25E006D3281 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		1D4FFAD817280EC500AA5D35 /* KFEpubExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubExtractor.h; path = Sources/KFEpubExtractor.h; sourceTree = "<group>"; };
 		1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubExtractor.m; path = Sources/KFEpubExtractor.m; sourceTree = "<group>"; };
 		1D4FFADB1728203C00AA5D35 /* KFEpubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KFEpubController.h; path = Sources/KFEpubController.h; sourceTree = "<group>"; };
@@ -115,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D4CF03F1748F0BC006D3281 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D4FFB1517297ABB00AA5D35 /* KFEpubTestUtils.h */,
+				1D4FFB1617297ABB00AA5D35 /* KFEpubTestUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		1D4FFAF617290E1700AA5D35 /* EpubKitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +160,7 @@
 				1D4FFB13172979E600AA5D35 /* KFEpubControllerTest.m */,
 				1D4FFB081729383E00AA5D35 /* KFEpubExtractorTest.m */,
 				1D4FFAFC17291A1500AA5D35 /* KFEpubParserTest.m */,
-				1D4FFB1517297ABB00AA5D35 /* KFEpubTestUtils.h */,
-				1D4FFB1617297ABB00AA5D35 /* KFEpubTestUtils.m */,
+				1D4CF03F1748F0BC006D3281 /* Utils */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -178,6 +188,7 @@
 		1DEB65571727E18800FDBDC3 = {
 			isa = PBXGroup;
 			children = (
+				1D4CF0431748F25E006D3281 /* README.md */,
 				1DEB65691727E18800FDBDC3 /* KFEpubKit */,
 				1D4FFAF617290E1700AA5D35 /* EpubKitTests */,
 				1DEB65621727E18800FDBDC3 /* Frameworks */,
@@ -234,6 +245,7 @@
 		1DEB656A1727E18800FDBDC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D4CF0421748F173006D3281 /* KFEpubKit.podspec */,
 				1DEB65821727E43400FDBDC3 /* Resources */,
 				1DEB656B1727E18800FDBDC3 /* KFEpubKit-Info.plist */,
 				1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */,
