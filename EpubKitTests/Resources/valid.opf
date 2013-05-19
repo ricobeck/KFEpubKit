@@ -1,0 +1,138 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="p9780132764056">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Test-Driven iOS Development (Jens Becker's Library)</dc:title>
+			<dc:creator>Graham Lee</dc:creator>
+			<dc:coverage>Upper Saddle River</dc:coverage>
+			<dc:coverage>Boston</dc:coverage>
+			<dc:coverage>Indianapolis</dc:coverage>
+			<dc:coverage>San Francisco</dc:coverage>
+			<dc:coverage>New York</dc:coverage>
+			<dc:coverage>Toronto</dc:coverage>
+			<dc:coverage>Montreal</dc:coverage>
+			<dc:coverage>London</dc:coverage>
+			<dc:coverage>Munich</dc:coverage>
+			<dc:coverage>Paris</dc:coverage>
+			<dc:coverage>Madrid</dc:coverage>
+			<dc:coverage>Cape Town</dc:coverage>
+			<dc:coverage>Sydney</dc:coverage>
+			<dc:coverage>Tokyo</dc:coverage>
+			<dc:coverage>Singapore</dc:coverage>
+			<dc:coverage>Mexico City</dc:coverage>
+			<dc:date>2012</dc:date>
+			<dc:identifier id="p9780132764056">9780132764056</dc:identifier>
+                        <dc:format>242 pages</dc:format>
+			<dc:type>Text</dc:type>
+			<dc:language>en</dc:language>
+			<dc:rights>Copyright &#169; 2012 Pearson Education, Inc.</dc:rights>
+			<dc:publisher>Addison-Wesley Professional</dc:publisher>
+                        <meta name="cover" content="cover-image"/>
+</metadata>
+<manifest>
+        <item id="ncxtoc" media-type="application/x-dtbncx+xml" href="toc.ncx"/>
+        <item id="cover" href="cover.html" media-type="application/xhtml+xml"/>
+        <item id="title" href="title.html" media-type="application/xhtml+xml"/>
+        <item id="copy" href="copyright.html" media-type="application/xhtml+xml"/>
+        <item id="pref01" href="pref01.html" media-type="application/xhtml+xml"/>
+        <item id="ded01" href="ded01.html" media-type="application/xhtml+xml"/>
+        <item id="toc" href="toc.html" media-type="application/xhtml+xml"/>
+        <item id="bk01-toc" href="bk01-toc.html" media-type="application/xhtml+xml"/>
+        <item id="pref02" href="pref02.html" media-type="application/xhtml+xml"/>
+        <item id="pref03" href="pref03.html" media-type="application/xhtml+xml"/>
+        <item id="pref04" href="pref04.html" media-type="application/xhtml+xml"/>
+        <item id="ch01" href="ch01.html" media-type="application/xhtml+xml"/>
+        <item id="ch02" href="ch02.html" media-type="application/xhtml+xml"/>
+        <item id="ch03" href="ch03.html" media-type="application/xhtml+xml"/>
+        <item id="ch04" href="ch04.html" media-type="application/xhtml+xml"/>
+        <item id="ch05" href="ch05.html" media-type="application/xhtml+xml"/>
+        <item id="ch06" href="ch06.html" media-type="application/xhtml+xml"/>
+        <item id="ch07" href="ch07.html" media-type="application/xhtml+xml"/>
+        <item id="ch08" href="ch08.html" media-type="application/xhtml+xml"/>
+        <item id="ch09" href="ch09.html" media-type="application/xhtml+xml"/>
+        <item id="ch10" href="ch10.html" media-type="application/xhtml+xml"/>
+        <item id="ch11" href="ch11.html" media-type="application/xhtml+xml"/>
+        <item id="ch12" href="ch12.html" media-type="application/xhtml+xml"/>
+        <item id="ch13" href="ch13.html" media-type="application/xhtml+xml"/>
+        <item id="index" href="index.html" media-type="application/xhtml+xml"/>
+        <item id="footnotes" href="footnotes.html" media-type="application/xhtml+xml"/>
+        <item id="cover-image" href="graphics/9780132764056.jpg" media-type="image/jpeg"/>
+        <item id="thumbnail" href="graphics/64056.jpg" media-type="image/jpeg"/>
+        <item id="css" href="9780132764056.css" media-type="text/css"/>
+        <item id="pt" href="page-template.xpgt" media-type="application/vnd.adobe-page-template+xml"/>
+        <item id="font1" href="fonts/cour.ttf" media-type="application/x-font-ttf"/>
+        <item id="font2" href="fonts/courbd.ttf" media-type="application/x-font-ttf"/>
+        <item id="font3" href="fonts/courbi.ttf" media-type="application/x-font-ttf"/>
+        <item id="font4" href="fonts/couri.ttf" media-type="application/x-font-ttf"/>
+        <item id="apub" href="graphics/pub.jpg" media-type="image/jpeg"/>
+        <item id="a01tab01" href="graphics/01tab01.jpg" media-type="image/jpeg"/>
+        <item id="a04tab01" href="graphics/04tab01.jpg" media-type="image/jpeg"/>
+        <item id="a04tab01a" href="graphics/04tab01a.jpg" media-type="image/jpeg"/>
+        <item id="a04tab02" href="graphics/04tab02.jpg" media-type="image/jpeg"/>
+        <item id="a04tab02a" href="graphics/04tab02a.jpg" media-type="image/jpeg"/>
+        <item id="ach01fg01" href="graphics/ch01fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach03fg01" href="graphics/ch03fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach03fg02" href="graphics/ch03fg02.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg01" href="graphics/ch04fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg02" href="graphics/ch04fg02.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg03" href="graphics/ch04fg03.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg04" href="graphics/ch04fg04.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg05" href="graphics/ch04fg05.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg06" href="graphics/ch04fg06.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg07" href="graphics/ch04fg07.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg08" href="graphics/ch04fg08.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg09" href="graphics/ch04fg09.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg10" href="graphics/ch04fg10.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg11" href="graphics/ch04fg11.jpg" media-type="image/jpeg"/>
+        <item id="ach04fg12" href="graphics/ch04fg12.jpg" media-type="image/jpeg"/>
+        <item id="ach05fg01" href="graphics/ch05fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach05fg02" href="graphics/ch05fg02.jpg" media-type="image/jpeg"/>
+        <item id="ach05fg03" href="graphics/ch05fg03.jpg" media-type="image/jpeg"/>
+        <item id="ach05fg04" href="graphics/ch05fg04.jpg" media-type="image/jpeg"/>
+        <item id="ach05fg05" href="graphics/ch05fg05.jpg" media-type="image/jpeg"/>
+        <item id="ach06fg01" href="graphics/ch06fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach07fg01" href="graphics/ch07fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach07fg02" href="graphics/ch07fg02.jpg" media-type="image/jpeg"/>
+        <item id="ach08fg01" href="graphics/ch08fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach08fg02" href="graphics/ch08fg02.jpg" media-type="image/jpeg"/>
+        <item id="ach09fg01" href="graphics/ch09fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach09fg02" href="graphics/ch09fg02.jpg" media-type="image/jpeg"/>
+        <item id="ach09fg03" href="graphics/ch09fg03.jpg" media-type="image/jpeg"/>
+        <item id="ach10fg01" href="graphics/ch10fg01.jpg" media-type="image/jpeg"/>
+        <item id="ach10fg02" href="graphics/ch10fg02.jpg" media-type="image/jpeg"/>
+        <item id="ach10fg03" href="graphics/ch10fg03.jpg" media-type="image/jpeg"/>
+        <item id="ach10fg04" href="graphics/ch10fg04.jpg" media-type="image/jpeg"/>
+        <item id="ach10fg05" href="graphics/ch10fg05.jpg" media-type="image/jpeg"/>
+        <item id="ach10fg06" href="graphics/ch10fg06.jpg" media-type="image/jpeg"/>
+      </manifest>
+    <spine toc="ncxtoc">
+			<itemref idref="cover"/>
+			<itemref idref="title"/>
+			<itemref idref="copy"/>
+			<itemref idref="pref01"/>
+			<itemref idref="ded01"/>
+			<itemref idref="toc"/>
+			<itemref idref="bk01-toc"/>
+			<itemref idref="pref02"/>
+			<itemref idref="pref03"/>
+			<itemref idref="pref04"/>
+			<itemref idref="ch01"/>
+			<itemref idref="ch02"/>
+			<itemref idref="ch03"/>
+			<itemref idref="ch04"/>
+			<itemref idref="ch05"/>
+			<itemref idref="ch06"/>
+			<itemref idref="ch07"/>
+			<itemref idref="ch08"/>
+			<itemref idref="ch09"/>
+			<itemref idref="ch10"/>
+			<itemref idref="ch11"/>
+			<itemref idref="ch12"/>
+			<itemref idref="ch13"/>
+			<itemref idref="index"/>
+			<itemref idref="footnotes"/>
+                </spine>
+                      <guide>
+                            <reference href="cover.html" type="start" title="Start Here"/>
+			    <reference href="bk01-toc.html" type="toc" title="Table of Contents"/>
+                       </guide>
+                 </package>

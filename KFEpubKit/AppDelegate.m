@@ -8,12 +8,20 @@
 
 #import "AppDelegate.h"
 #import "KFEpubController.h"
+#import "KFEpubContentModel.h"
+#import <KFToolbar/KFToolbar.h>
 
-@interface AppDelegate ()
+
+@interface AppDelegate ()<KFEpubControllerDelegate>
 
 
 @property (nonatomic, strong) KFEpubController *epubController;
 @property (nonatomic, strong) NSURL *libraryURL;
+@property (unsafe_unretained) IBOutlet NSTextView *textView;
+@property (weak) IBOutlet KFToolbar *bottomToolbar;
+
+@property (nonatomic) NSUInteger spineIndex;
+@property (nonatomic, strong) KFEpubContentModel *contentModel;
 
 
 @end
@@ -24,6 +32,44 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    KFToolbarItem *previousSpine = [KFToolbarItem toolbarItemWithIcon:[NSImage imageNamed:NSImageNameGoLeftTemplate] tag:0];
+    [previousSpine setToolTip:NSLocalizedString(@"Previous", nil)];
+    previousSpine.keyEquivalent = @"a";
+    previousSpine.keyEquivalentModifierMask = NSAlternateKeyMask;
+    
+    KFToolbarItem *nextSpine = [KFToolbarItem toolbarItemWithIcon:[NSImage imageNamed:NSImageNameGoRightTemplate] tag:1];
+    [nextSpine setToolTip:NSLocalizedString(@"Next", nil)];
+    nextSpine.keyEquivalent = @"s";
+    nextSpine.keyEquivalentModifierMask = NSAlternateKeyMask;
+    
+    self.bottomToolbar.leftItems = @[previousSpine];
+    self.bottomToolbar.rightItems = @[nextSpine];
+    
+    [self.bottomToolbar setItemSelectionHandler:^(KFToolbarItemSelectionType selectionType, KFToolbarItem *toolbarItem, NSUInteger tag) {
+        switch (tag)
+        {
+            case 0:
+                if (self.spineIndex > 1)
+                {
+                    self.spineIndex--;
+                    [self updateContentForSpineIndex:self.spineIndex];
+                }
+                break;
+            case 1:
+                if (self.spineIndex < self.contentModel.spine.count)
+                {
+                    self.spineIndex++;
+                    [self updateContentForSpineIndex:self.spineIndex];
+                }
+                break;
+            default:
+                break;
+        }
+    }];
+    
+    
+    self.textView.textContainerInset = NSMakeSize(40.0f, 40.0f);
+    
     NSData *securityBookmark = [[NSUserDefaults standardUserDefaults] objectForKey:@"appDirectory"];
     if (!securityBookmark)
     {
@@ -51,7 +97,7 @@
 {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     
-    panel.title = @"Select or create a Library Folder";
+    panel.title = @"Select or create a library folder";
     panel.canChooseFiles = NO;
     panel.canCreateDirectories = YES;
     panel.canChooseDirectories = YES;
@@ -76,10 +122,49 @@
 
 - (void)testEpubsInMainBundleResources
 {
-    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"TDD-for-iOS" withExtension:@"epub"];
+    NSURL *epubURL = [[NSBundle mainBundle] URLForResource:@"tolstoy-war-and-peace" withExtension:@"epub"];
     
     [self.libraryURL startAccessingSecurityScopedResource];
     self.epubController = [[KFEpubController alloc] initWithEpubURL:epubURL andDestinationFolder:self.libraryURL];
+    self.epubController.delegate = self;
+    [self.epubController openAsynchronous:YES];
+}
+
+
+#pragma mark KFEpubControllerDelegate Methods
+
+
+- (void)epubController:(KFEpubController *)controller willOpenEpub:(NSURL *)epubURL
+{
+    NSLog(@"will open epub");
+}
+
+
+- (void)epubController:(KFEpubController *)controller didOpenEpub:(KFEpubContentModel *)contentModel
+{
+    self.window.title = contentModel.metaData[@"title"];
+    self.contentModel = contentModel;
+    self.spineIndex = 1;
+    [self updateContentForSpineIndex:self.spineIndex];
+
+    //[self.libraryURL stopAccessingSecurityScopedResource];
+}
+
+
+- (void)updateContentForSpineIndex:(NSUInteger)currentSpineIndex
+{
+    NSString *contentFile = self.contentModel.manifest[self.contentModel.spine[currentSpineIndex]][@"href"];
+    NSURL *contentURL = [self.epubController.epubContentBaseURL URLByAppendingPathComponent:contentFile];
+    
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithURL:contentURL documentAttributes:nil];
+    [self.textView.textStorage setAttributedString:attributedString];
+}
+
+
+- (void)epubController:(KFEpubController *)controller didFailWithError:(NSError *)error
+{
+    NSLog(@"epubController:didFailWithError: %@", error.description);
+    //[self.libraryURL stopAccessingSecurityScopedResource];
 }
 
 @end

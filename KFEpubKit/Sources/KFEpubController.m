@@ -1,14 +1,32 @@
-//
 //  KFEpubController.m
 //  KFEpubKit
 //
-//  Created by rick on 24.04.13.
-//  Copyright (c) 2013 KF Interactive. All rights reserved.
+// Copyright (c) 2013 Rico Becker | KF INTERACTIVE
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import "KFEpubController.h"
+#import "KFEpubConstants.h"
 #import "KFEpubExtractor.h"
 #import "KFEpubParser.h"
+#import "KFEpubContentModel.h"
+
 
 @interface KFEpubController ()<KFEpubExtractorDelegate>
 
@@ -28,13 +46,18 @@
     self = [super init];
     if (self)
     {
+        _epubURL = epubURL;
         _destinationURL = destinationURL;
-        
-        self.extractor = [[KFEpubExtractor alloc] initWithEpubURL:epubURL andDestinationURL:destinationURL];
-        self.extractor.delegate = self;
-        [self.extractor start];
     }
     return self;
+}
+
+
+- (void)openAsynchronous:(BOOL)asynchronous
+{
+    self.extractor = [[KFEpubExtractor alloc] initWithEpubURL:self.epubURL andDestinationURL:self.destinationURL];
+    self.extractor.delegate = self;
+    [self.extractor start:asynchronous];
 }
 
 
@@ -43,40 +66,56 @@
 
 - (void)epubExtractorDidStartExtracting:(KFEpubExtractor *)epubExtractor
 {
-    NSLog(@"epubExtractorDidStartExtracting");
+    if ([self.delegate respondsToSelector:@selector(epubController:willOpenEpub:)])
+    {
+        [self.delegate epubController:self willOpenEpub:self.epubURL];
+    }
 }
 
 
 - (void)epubExtractorDidFinishExtracting:(KFEpubExtractor *)epubExtractor
 {
-    NSLog(@"epubExtractorDidFinishExtracting");
     self.parser = [KFEpubParser new];
     NSURL *rootFile = [self.parser rootFileForBaseURL:self.destinationURL];
+    _epubContentBaseURL = [rootFile URLByDeletingLastPathComponent];
+    
     NSError *error = nil;
     NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:rootFile options:kNilOptions error:&error];
     if (document)
     {
-        NSDictionary *metaData = [self.parser metaDataFromDocument:document];
-        NSLog(@"meta: %@", metaData);
+        _contentModel = [KFEpubContentModel new];
         
-        NSDictionary *manifest = [self.parser manifestFromDocument:document];
-        NSArray *spine = [self.parser spineFromDocument:document];
+        self.contentModel.bookType = [self.parser bookTypeForBaseURL:self.destinationURL];
+        self.contentModel.bookEncryption = [self.parser contentEncryptionForBaseURL:self.destinationURL];
+        self.contentModel.metaData = [self.parser metaDataFromDocument:document];
+        self.contentModel.coverPath = [self.parser coverPathComponentFromDocument:document];
         
-        [spine enumerateObjectsUsingBlock:^(NSString *item, NSUInteger idx, BOOL *stop)
+        if (!self.contentModel.metaData)
         {
-            if (idx > 0)
+            NSError *error = [NSError errorWithDomain:KFEpubKitErrorDomain code:1 userInfo:@{NSLocalizedDescriptionKey: @"No meta data found"}];
+            [self.delegate epubController:self didFailWithError:error];
+        }
+        else
+        {
+            self.contentModel.manifest = [self.parser manifestFromDocument:document];
+            self.contentModel.spine = [self.parser spineFromDocument:document];
+            self.contentModel.guide = [self.parser guideFromDocument:document];
+
+            if (self.delegate)
             {
-                NSLog(@"%@", manifest[item]);
+                [self.delegate epubController:self didOpenEpub:self.contentModel];
             }
-        }];
-        
+        }
     }
 }
 
 
 - (void)epubExtractor:(KFEpubExtractor *)epubExtractor didFailWithError:(NSError *)error
 {
-    NSLog(@"epubExtractor:didFailWithError");
+    if (self.delegate)
+    {
+        [self.delegate epubController:self didFailWithError:error];
+    }
 }
 
 
