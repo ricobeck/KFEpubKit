@@ -50,6 +50,7 @@
 		1D7175251769030400CA1E90 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
 		1D7175261769030400CA1E90 /* KFEpubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB19172983BC00AA5D35 /* KFEpubKit.m */; };
 		1D7175271769030400CA1E90 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
+		1D7175281769102500CA1E90 /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB0A17293ABA00AA5D35 /* tolstoy-war-and-peace.epub */; };
 		1DC73F111733FA6900C87195 /* Winnie-the-Pooh.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1DC73F101733FA6900C87195 /* Winnie-the-Pooh.epub */; };
 		1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
 		1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
@@ -486,6 +487,7 @@
 				1D71750E176900FC00CA1E90 /* Default-568h@2x.png in Resources */,
 				1D717514176900FC00CA1E90 /* KFViewController_iPhone.xib in Resources */,
 				1D717517176900FC00CA1E90 /* KFViewController_iPad.xib in Resources */,
+				1D7175281769102500CA1E90 /* tolstoy-war-and-peace.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
