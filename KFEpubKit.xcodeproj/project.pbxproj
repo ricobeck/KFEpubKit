@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		1D4FFADA17280EC500AA5D35 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
 		1D4FFADD1728203C00AA5D35 /* KFEpubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFADC1728203C00AA5D35 /* KFEpubController.m */; };
-		1D4FFAE417290D9800AA5D35 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
-		1D4FFAE517290D9800AA5D35 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
-		1D4FFAE617290D9800AA5D35 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
-		1D4FFAE717290D9800AA5D35 /* KFEpubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFADC1728203C00AA5D35 /* KFEpubController.m */; };
 		1D4FFAE917290D9800AA5D35 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
 		1D4FFAEC17290D9800AA5D35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
 		1D4FFAED17290D9800AA5D35 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB65721727E18800FDBDC3 /* Credits.rtf */; };
@@ -28,9 +24,33 @@
 		1D4FFB1717297ABB00AA5D35 /* KFEpubTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1617297ABB00AA5D35 /* KFEpubTestUtils.m */; };
 		1D4FFB1A172983BC00AA5D35 /* KFEpubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB19172983BC00AA5D35 /* KFEpubKit.m */; };
 		1D4FFB1D1729846A00AA5D35 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
-		1D4FFB1E172984B900AA5D35 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
 		1D4FFB21172989E300AA5D35 /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */; };
 		1D4FFB231729918900AA5D35 /* valid-comments.opf in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB221729918900AA5D35 /* valid-comments.opf */; };
+		1D7174F8176900FC00CA1E90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7174F7176900FC00CA1E90 /* UIKit.framework */; };
+		1D7174FA176900FC00CA1E90 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7174F9176900FC00CA1E90 /* Foundation.framework */; };
+		1D7174FC176900FC00CA1E90 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7174FB176900FC00CA1E90 /* CoreGraphics.framework */; };
+		1D717502176900FC00CA1E90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D717500176900FC00CA1E90 /* InfoPlist.strings */; };
+		1D717504176900FC00CA1E90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D717503176900FC00CA1E90 /* main.m */; };
+		1D717508176900FC00CA1E90 /* KFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D717507176900FC00CA1E90 /* KFAppDelegate.m */; };
+		1D71750A176900FC00CA1E90 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D717509176900FC00CA1E90 /* Default.png */; };
+		1D71750C176900FC00CA1E90 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D71750B176900FC00CA1E90 /* Default@2x.png */; };
+		1D71750E176900FC00CA1E90 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D71750D176900FC00CA1E90 /* Default-568h@2x.png */; };
+		1D717511176900FC00CA1E90 /* KFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D717510176900FC00CA1E90 /* KFViewController.m */; };
+		1D717514176900FC00CA1E90 /* KFViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D717512176900FC00CA1E90 /* KFViewController_iPhone.xib */; };
+		1D717517176900FC00CA1E90 /* KFViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D717515176900FC00CA1E90 /* KFViewController_iPad.xib */; };
+		1D71751C1769030100CA1E90 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
+		1D71751D1769030100CA1E90 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
+		1D71751E1769030100CA1E90 /* KFEpubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFADC1728203C00AA5D35 /* KFEpubController.m */; };
+		1D71751F1769030100CA1E90 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
+		1D7175201769030100CA1E90 /* KFEpubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB19172983BC00AA5D35 /* KFEpubKit.m */; };
+		1D7175211769030100CA1E90 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
+		1D7175221769030400CA1E90 /* KFEpubConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */; };
+		1D7175231769030400CA1E90 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
+		1D7175241769030400CA1E90 /* KFEpubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFADC1728203C00AA5D35 /* KFEpubController.m */; };
+		1D7175251769030400CA1E90 /* KFEpubExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFAD917280EC500AA5D35 /* KFEpubExtractor.m */; };
+		1D7175261769030400CA1E90 /* KFEpubKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4FFB19172983BC00AA5D35 /* KFEpubKit.m */; };
+		1D7175271769030400CA1E90 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
+		1D7175281769102500CA1E90 /* tolstoy-war-and-peace.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1D4FFB0A17293ABA00AA5D35 /* tolstoy-war-and-peace.epub */; };
 		1DC73F111733FA6900C87195 /* Winnie-the-Pooh.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1DC73F101733FA6900C87195 /* Winnie-the-Pooh.epub */; };
 		1DEB65641727E18800FDBDC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEB65631727E18800FDBDC3 /* Cocoa.framework */; };
 		1DEB656E1727E18800FDBDC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */; };
@@ -41,6 +61,7 @@
 		1DEB65871727FC6700FDBDC3 /* KFEpubParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB65861727FC6700FDBDC3 /* KFEpubParser.m */; };
 		1DEB658B1727FFEE00FDBDC3 /* KFEpubContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB658A1727FFEE00FDBDC3 /* KFEpubContentModel.m */; };
 		5B1C560EB2C844A39C937FFB /* libPods-KFEpubKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9236CF0F044D65B0827915 /* libPods-KFEpubKit.a */; };
+		7294A64600C64AFBA5B8A56E /* libPods-KFEpubKit iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC03826CD99431A927FC302 /* libPods-KFEpubKit iOS.a */; };
 		D0507F3072C34E6A8D7BABC5 /* libPods-KFEpubKit Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4878F171D94147409B51FE24 /* libPods-KFEpubKit Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +92,23 @@
 		1D4FFB1C1729846900AA5D35 /* KFEpubConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KFEpubConstants.m; path = Sources/KFEpubConstants.m; sourceTree = "<group>"; };
 		1D4FFB20172989E300AA5D35 /* tolstoy-war-and-peace.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tolstoy-war-and-peace.epub"; sourceTree = "<group>"; };
 		1D4FFB221729918900AA5D35 /* valid-comments.opf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "valid-comments.opf"; sourceTree = "<group>"; };
+		1D7174F6176900FC00CA1E90 /* KFEpubKit iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KFEpubKit iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D7174F7176900FC00CA1E90 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		1D7174F9176900FC00CA1E90 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1D7174FB176900FC00CA1E90 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		1D7174FF176900FC00CA1E90 /* KFEpubKit iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KFEpubKit iOS-Info.plist"; sourceTree = "<group>"; };
+		1D717501176900FC00CA1E90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1D717503176900FC00CA1E90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1D717505176900FC00CA1E90 /* KFEpubKit iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KFEpubKit iOS-Prefix.pch"; sourceTree = "<group>"; };
+		1D717506176900FC00CA1E90 /* KFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFAppDelegate.h; sourceTree = "<group>"; };
+		1D717507176900FC00CA1E90 /* KFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFAppDelegate.m; sourceTree = "<group>"; };
+		1D717509176900FC00CA1E90 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1D71750B176900FC00CA1E90 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1D71750D176900FC00CA1E90 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1D71750F176900FC00CA1E90 /* KFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFViewController.h; sourceTree = "<group>"; };
+		1D717510176900FC00CA1E90 /* KFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFViewController.m; sourceTree = "<group>"; };
+		1D717513176900FC00CA1E90 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KFViewController_iPhone.xib; sourceTree = "<group>"; };
+		1D717516176900FC00CA1E90 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KFViewController_iPad.xib; sourceTree = "<group>"; };
 		1DC73F101733FA6900C87195 /* Winnie-the-Pooh.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Winnie-the-Pooh.epub"; sourceTree = "<group>"; };
 		1DEB65601727E18800FDBDC3 /* KFEpubKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFEpubKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEB65631727E18800FDBDC3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -93,6 +131,8 @@
 		5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit.xcconfig"; path = "Pods/Pods-KFEpubKit.xcconfig"; sourceTree = SOURCE_ROOT; };
 		6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit Tests.xcconfig"; path = "Pods/Pods-KFEpubKit Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		7B9236CF0F044D65B0827915 /* libPods-KFEpubKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KFEpubKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFEpubKit iOS.xcconfig"; path = "Pods/Pods-KFEpubKit iOS.xcconfig"; sourceTree = SOURCE_ROOT; };
+		DDC03826CD99431A927FC302 /* libPods-KFEpubKit iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KFEpubKit iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +142,17 @@
 			files = (
 				1D4FFAE917290D9800AA5D35 /* Cocoa.framework in Frameworks */,
 				D0507F3072C34E6A8D7BABC5 /* libPods-KFEpubKit Tests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D7174F3176900FC00CA1E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D7174F8176900FC00CA1E90 /* UIKit.framework in Frameworks */,
+				1D7174FA176900FC00CA1E90 /* Foundation.framework in Frameworks */,
+				1D7174FC176900FC00CA1E90 /* CoreGraphics.framework in Frameworks */,
+				7294A64600C64AFBA5B8A56E /* libPods-KFEpubKit iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,17 +236,47 @@
 			name = EPUBs;
 			sourceTree = "<group>";
 		};
+		1D7174FD176900FC00CA1E90 /* KFEpubKit iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1D717506176900FC00CA1E90 /* KFAppDelegate.h */,
+				1D717507176900FC00CA1E90 /* KFAppDelegate.m */,
+				1D71750F176900FC00CA1E90 /* KFViewController.h */,
+				1D717510176900FC00CA1E90 /* KFViewController.m */,
+				1D717512176900FC00CA1E90 /* KFViewController_iPhone.xib */,
+				1D717515176900FC00CA1E90 /* KFViewController_iPad.xib */,
+				1D7174FE176900FC00CA1E90 /* Supporting Files */,
+			);
+			path = "KFEpubKit iOS";
+			sourceTree = "<group>";
+		};
+		1D7174FE176900FC00CA1E90 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D7174FF176900FC00CA1E90 /* KFEpubKit iOS-Info.plist */,
+				1D717500176900FC00CA1E90 /* InfoPlist.strings */,
+				1D717503176900FC00CA1E90 /* main.m */,
+				1D717505176900FC00CA1E90 /* KFEpubKit iOS-Prefix.pch */,
+				1D717509176900FC00CA1E90 /* Default.png */,
+				1D71750B176900FC00CA1E90 /* Default@2x.png */,
+				1D71750D176900FC00CA1E90 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		1DEB65571727E18800FDBDC3 = {
 			isa = PBXGroup;
 			children = (
 				1D4CF0431748F25E006D3281 /* README.md */,
 				1DEB65691727E18800FDBDC3 /* KFEpubKit */,
 				1D4FFAF617290E1700AA5D35 /* EpubKitTests */,
+				1D7174FD176900FC00CA1E90 /* KFEpubKit iOS */,
 				1DEB65621727E18800FDBDC3 /* Frameworks */,
 				1DEB65611727E18800FDBDC3 /* Products */,
 				0F12443EF7044523A4B55C0A /* Pods.xcconfig */,
 				6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */,
 				5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */,
+				9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +285,7 @@
 			children = (
 				1DEB65601727E18800FDBDC3 /* KFEpubKit.app */,
 				1D4FFAF417290D9800AA5D35 /* KFEpubKit Tests.app */,
+				1D7174F6176900FC00CA1E90 /* KFEpubKit iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,9 +294,13 @@
 			isa = PBXGroup;
 			children = (
 				1DEB65631727E18800FDBDC3 /* Cocoa.framework */,
+				1D7174F7176900FC00CA1E90 /* UIKit.framework */,
+				1D7174F9176900FC00CA1E90 /* Foundation.framework */,
+				1D7174FB176900FC00CA1E90 /* CoreGraphics.framework */,
 				1DEB65651727E18800FDBDC3 /* Other Frameworks */,
 				4878F171D94147409B51FE24 /* libPods-KFEpubKit Tests.a */,
 				7B9236CF0F044D65B0827915 /* libPods-KFEpubKit.a */,
+				DDC03826CD99431A927FC302 /* libPods-KFEpubKit iOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -306,6 +392,25 @@
 			productReference = 1D4FFAF417290D9800AA5D35 /* KFEpubKit Tests.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1D7174F5176900FC00CA1E90 /* KFEpubKit iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D71751A176900FC00CA1E90 /* Build configuration list for PBXNativeTarget "KFEpubKit iOS" */;
+			buildPhases = (
+				E8985D254DE04BE4876B249B /* Check Pods Manifest.lock */,
+				1D7174F2176900FC00CA1E90 /* Sources */,
+				1D7174F3176900FC00CA1E90 /* Frameworks */,
+				1D7174F4176900FC00CA1E90 /* Resources */,
+				19578244592F4519920EF34C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KFEpubKit iOS";
+			productName = "KFEpubKit iOS";
+			productReference = 1D7174F6176900FC00CA1E90 /* KFEpubKit iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		1DEB655F1727E18800FDBDC3 /* KFEpubKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB657D1727E18800FDBDC3 /* Build configuration list for PBXNativeTarget "KFEpubKit" */;
@@ -350,6 +455,7 @@
 			targets = (
 				1DEB655F1727E18800FDBDC3 /* KFEpubKit */,
 				1D4FFADF17290D9800AA5D35 /* KFEpubKit Tests */,
+				1D7174F5176900FC00CA1E90 /* KFEpubKit iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -368,6 +474,20 @@
 				1D4FFB0B17293ABB00AA5D35 /* tolstoy-war-and-peace.epub in Resources */,
 				1D4FFB231729918900AA5D35 /* valid-comments.opf in Resources */,
 				1DC73F111733FA6900C87195 /* Winnie-the-Pooh.epub in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D7174F4176900FC00CA1E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D717502176900FC00CA1E90 /* InfoPlist.strings in Resources */,
+				1D71750A176900FC00CA1E90 /* Default.png in Resources */,
+				1D71750C176900FC00CA1E90 /* Default@2x.png in Resources */,
+				1D71750E176900FC00CA1E90 /* Default-568h@2x.png in Resources */,
+				1D717514176900FC00CA1E90 /* KFViewController_iPhone.xib in Resources */,
+				1D717517176900FC00CA1E90 /* KFViewController_iPad.xib in Resources */,
+				1D7175281769102500CA1E90 /* tolstoy-war-and-peace.epub in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +518,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-KFEpubKit Tests-resources.sh\"\n";
+		};
+		19578244592F4519920EF34C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-KFEpubKit iOS-resources.sh\"\n";
 		};
 		1D4FFAF017290D9800AA5D35 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -469,6 +603,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
 		};
+		E8985D254DE04BE4876B249B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
 		F65BBA73D4194947B61B1844 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,16 +638,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D4FFAE417290D9800AA5D35 /* KFEpubParser.m in Sources */,
-				1D4FFAE517290D9800AA5D35 /* KFEpubContentModel.m in Sources */,
-				1D4FFAE617290D9800AA5D35 /* KFEpubExtractor.m in Sources */,
-				1D4FFAE717290D9800AA5D35 /* KFEpubController.m in Sources */,
 				1D4FFAFA1729122E00AA5D35 /* GHUnitTestMain.m in Sources */,
 				1D4FFAFD17291A1500AA5D35 /* KFEpubParserTest.m in Sources */,
 				1D4FFB091729383E00AA5D35 /* KFEpubExtractorTest.m in Sources */,
 				1D4FFB14172979E600AA5D35 /* KFEpubControllerTest.m in Sources */,
 				1D4FFB1717297ABB00AA5D35 /* KFEpubTestUtils.m in Sources */,
-				1D4FFB1E172984B900AA5D35 /* KFEpubConstants.m in Sources */,
+				1D71751C1769030100CA1E90 /* KFEpubConstants.m in Sources */,
+				1D71751D1769030100CA1E90 /* KFEpubContentModel.m in Sources */,
+				1D71751E1769030100CA1E90 /* KFEpubController.m in Sources */,
+				1D71751F1769030100CA1E90 /* KFEpubExtractor.m in Sources */,
+				1D7175201769030100CA1E90 /* KFEpubKit.m in Sources */,
+				1D7175211769030100CA1E90 /* KFEpubParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D7174F2176900FC00CA1E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D717504176900FC00CA1E90 /* main.m in Sources */,
+				1D717508176900FC00CA1E90 /* KFAppDelegate.m in Sources */,
+				1D717511176900FC00CA1E90 /* KFViewController.m in Sources */,
+				1D7175221769030400CA1E90 /* KFEpubConstants.m in Sources */,
+				1D7175231769030400CA1E90 /* KFEpubContentModel.m in Sources */,
+				1D7175241769030400CA1E90 /* KFEpubController.m in Sources */,
+				1D7175251769030400CA1E90 /* KFEpubExtractor.m in Sources */,
+				1D7175261769030400CA1E90 /* KFEpubKit.m in Sources */,
+				1D7175271769030400CA1E90 /* KFEpubParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +686,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1D717500176900FC00CA1E90 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D717501176900FC00CA1E90 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1D717512176900FC00CA1E90 /* KFViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D717513176900FC00CA1E90 /* en */,
+			);
+			name = KFViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		1D717515176900FC00CA1E90 /* KFViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D717516176900FC00CA1E90 /* en */,
+			);
+			name = KFViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
 		1DEB656C1727E18800FDBDC3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -574,6 +763,48 @@
 				GCC_PREFIX_HEADER = "KFEpubKit/KFEpubKit-Prefix.pch";
 				INFOPLIST_FILE = "EpubKitTests/KFEpubKitTests-Info.plist";
 				PRODUCT_NAME = "KFEpubKit Tests";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1D717518176900FC00CA1E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KFEpubKit iOS/KFEpubKit iOS-Prefix.pch";
+				INFOPLIST_FILE = "KFEpubKit iOS/KFEpubKit iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1D717519176900FC00CA1E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KFEpubKit iOS/KFEpubKit iOS-Prefix.pch";
+				INFOPLIST_FILE = "KFEpubKit iOS/KFEpubKit iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -675,6 +906,15 @@
 			buildConfigurations = (
 				1D4FFAF217290D9800AA5D35 /* Debug */,
 				1D4FFAF317290D9800AA5D35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D71751A176900FC00CA1E90 /* Build configuration list for PBXNativeTarget "KFEpubKit iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D717518176900FC00CA1E90 /* Debug */,
+				1D717519176900FC00CA1E90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

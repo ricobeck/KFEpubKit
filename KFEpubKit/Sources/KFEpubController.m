@@ -80,7 +80,8 @@
     _epubContentBaseURL = [rootFile URLByDeletingLastPathComponent];
     
     NSError *error = nil;
-    NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:rootFile options:kNilOptions error:&error];
+    NSString *content = [NSString stringWithContentsOfURL:rootFile encoding:NSUTF8StringEncoding error:&error];
+    DDXMLDocument *document = [[DDXMLDocument alloc] initWithXMLString:content options:kNilOptions error:&error];
     if (document)
     {
         _contentModel = [KFEpubContentModel new];

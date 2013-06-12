@@ -23,6 +23,7 @@
 
 #import <Foundation/Foundation.h>
 #import "KFEpubConstants.h"
+#import <KissXML/DDXMLDocument.h>
 
 @class KFEpubParser;
 
@@ -36,15 +37,15 @@
 
 - (NSURL *)rootFileForBaseURL:(NSURL *)baseURL;
 
-- (NSString *)coverPathComponentFromDocument:(NSXMLDocument *)document;
+- (NSString *)coverPathComponentFromDocument:(DDXMLDocument *)document;
 
-- (NSDictionary *)metaDataFromDocument:(NSXMLDocument *)document;
+- (NSDictionary *)metaDataFromDocument:(DDXMLDocument *)document;
 
-- (NSArray *)spineFromDocument:(NSXMLDocument *)document;
+- (NSArray *)spineFromDocument:(DDXMLDocument *)document;
 
-- (NSDictionary *)manifestFromDocument:(NSXMLDocument *)document;
+- (NSDictionary *)manifestFromDocument:(DDXMLDocument *)document;
 
-- (NSArray *)guideFromDocument:(NSXMLDocument *)document;
+- (NSArray *)guideFromDocument:(DDXMLDocument *)document;
 
 
 @end

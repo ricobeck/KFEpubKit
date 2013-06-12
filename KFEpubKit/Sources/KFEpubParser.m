@@ -75,7 +75,8 @@
 {
     NSURL *containerURL = [[baseURL URLByAppendingPathComponent:@"META-INF"] URLByAppendingPathComponent:@"sinf.xml"];
     NSError *error = nil;
-    NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:containerURL options:kNilOptions error:&error];
+    NSString *content = [NSString stringWithContentsOfURL:containerURL encoding:NSUTF8StringEncoding error:&error];
+    DDXMLDocument *document = [[DDXMLDocument alloc] initWithXMLString:content options:kNilOptions error:&error];
     
     if (error)
     {
@@ -98,13 +99,17 @@
     NSError *error = nil;
     NSURL *containerURL = [[baseURL URLByAppendingPathComponent:@"META-INF"] URLByAppendingPathComponent:@"container.xml"];
     
-    NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:containerURL options:kNilOptions error:&error];
-    NSXMLElement *root  = [document rootElement];
-    NSArray* objectElements = [root nodesForXPath:@"//container/rootfiles/rootfile" error:nil];
+    NSString *content = [NSString stringWithContentsOfURL:containerURL encoding:NSUTF8StringEncoding error:&error];
+    DDXMLDocument *document = [[DDXMLDocument alloc] initWithXMLString:content options:kNilOptions error:&error];
+    DDXMLElement *root  = [document rootElement];
+    
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray* objectElements = [root nodesForXPath:@"//default:container/default:rootfiles/default:rootfile" error:&error];
     
     NSUInteger count = 0;
     NSString *value = nil;
-    for (NSXMLElement* xmlElement in objectElements)
+    for (DDXMLElement* xmlElement in objectElements)
     {
         value = [[xmlElement attributeForName:@"full-path"] stringValue];
         count++;
@@ -126,11 +131,13 @@
 }
 
 
-- (NSString *)coverPathComponentFromDocument:(NSXMLDocument *)document
+- (NSString *)coverPathComponentFromDocument:(DDXMLDocument *)document
 {
     NSString *coverPath;
-    NSXMLElement *root  = [document rootElement];
-    NSArray *metaNodes = [root nodesForXPath:@"//item[@properties='cover-image']" error:nil];
+    DDXMLElement *root  = [document rootElement];
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *metaNodes = [root nodesForXPath:@"//default:item[@properties='cover-image']" error:nil];
     
     if (metaNodes)
     {
@@ -141,8 +148,10 @@
     {
         NSString *coverItemId;
         
-        metaNodes = [root nodesForXPath:@"//meta" error:nil];
-        for (NSXMLElement *xmlElement in metaNodes)
+        DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+        defaultNamespace.name = @"default";
+        metaNodes = [root nodesForXPath:@"//default:meta" error:nil];
+        for (DDXMLElement *xmlElement in metaNodes)
         {
             if ([[xmlElement attributeForName:@"name"].stringValue compare:@"cover" options:NSCaseInsensitiveSearch] == NSOrderedSame)
             {
@@ -156,9 +165,11 @@
         }
         else
         {
-            NSArray *itemNodes = [root nodesForXPath:@"//item" error:nil];
+            DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+            defaultNamespace.name = @"default";
+            NSArray *itemNodes = [root nodesForXPath:@"//default:item" error:nil];
             
-            for (NSXMLElement *itemElement in itemNodes)
+            for (DDXMLElement *itemElement in itemNodes)
             {
                 if ([[itemElement attributeForName:@"id"].stringValue compare:coverItemId options:NSCaseInsensitiveSearch] == NSOrderedSame)
                 {
@@ -173,18 +184,20 @@
 
 
 
-- (NSDictionary *)metaDataFromDocument:(NSXMLDocument *)document
+- (NSDictionary *)metaDataFromDocument:(DDXMLDocument *)document
 {
     NSMutableDictionary *metaData = [NSMutableDictionary new];
-    NSXMLElement *root  = [document rootElement];
-    NSArray *metaNodes = [root nodesForXPath:@"//package/metadata" error:nil];
+    DDXMLElement *root  = [document rootElement];
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *metaNodes = [root nodesForXPath:@"//default:package/default:metadata" error:nil];
     
     if (metaNodes.count == 1)
     {
-        NSXMLElement *metaNode = metaNodes[0];
+        DDXMLElement *metaNode = metaNodes[0];
         NSArray *metaElements = metaNode.children;
 
-        for (NSXMLElement* xmlElement in metaElements)
+        for (DDXMLElement* xmlElement in metaElements)
         {
             if ([self isValidNode:xmlElement])
             {
@@ -201,15 +214,17 @@
 }
 
 
-- (NSArray *)spineFromDocument:(NSXMLDocument *)document
+- (NSArray *)spineFromDocument:(DDXMLDocument *)document
 {
     NSMutableArray *spine = [NSMutableArray new];
-    NSXMLElement *root  = [document rootElement];
-    NSArray *spineNodes = [root nodesForXPath:@"//package/spine" error:nil];
+    DDXMLElement *root  = [document rootElement];
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *spineNodes = [root nodesForXPath:@"//default:package/default:spine" error:nil];
     
     if (spineNodes.count == 1)
     {
-        NSXMLElement *spineElement = spineNodes[0];
+        DDXMLElement *spineElement = spineNodes[0];
         
         NSString *toc = [[spineElement attributeForName:@"toc"] stringValue];
         if (toc)
@@ -221,7 +236,7 @@
             [spine addObject:@""];
         }
         NSArray *spineElements = spineElement.children;
-        for (NSXMLElement* xmlElement in spineElements)
+        for (DDXMLElement* xmlElement in spineElements)
         {
             if ([self isValidNode:xmlElement])
             {
@@ -238,16 +253,18 @@
 }
 
 
-- (NSDictionary *)manifestFromDocument:(NSXMLDocument *)document
+- (NSDictionary *)manifestFromDocument:(DDXMLDocument *)document
 {
     NSMutableDictionary *manifest = [NSMutableDictionary new];
-    NSXMLElement *root  = [document rootElement];
-    NSArray *manifestNodes = [root nodesForXPath:@"//package/manifest" error:nil];
+    DDXMLElement *root  = [document rootElement];
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *manifestNodes = [root nodesForXPath:@"//default:package/default:manifest" error:nil];
     
     if (manifestNodes.count == 1)
     {
-        NSArray *itemElements = ((NSXMLElement *)manifestNodes[0]).children;
-        for (NSXMLElement* xmlElement in itemElements)
+        NSArray *itemElements = ((DDXMLElement *)manifestNodes[0]).children;
+        for (DDXMLElement* xmlElement in itemElements)
         {
             if ([self isValidNode:xmlElement] && xmlElement.attributes)
             {
@@ -280,18 +297,21 @@
 }
 
 
-- (NSArray *)guideFromDocument:(NSXMLDocument *)document
+- (NSArray *)guideFromDocument:(DDXMLDocument *)document
 {
     NSMutableArray *guide = [NSMutableArray new];
-    NSXMLElement *root  = [document rootElement];
-    NSArray *guideNodes = [root nodesForXPath:@"//package/guide" error:nil];
+    DDXMLElement *root  = [document rootElement];
+    
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *guideNodes = [root nodesForXPath:@"//default:package/default:guide" error:nil];
     
     if (guideNodes.count == 1)
     {
-        NSXMLElement *guideElement = guideNodes[0];
+        DDXMLElement *guideElement = guideNodes[0];
         NSArray *referenceElements = guideElement.children;
         
-        for (NSXMLElement* xmlElement in referenceElements)
+        for (DDXMLElement* xmlElement in referenceElements)
         {
             if ([self isValidNode:xmlElement])
             {
@@ -326,9 +346,9 @@
 }
 
 
-- (BOOL)isValidNode:(NSXMLElement *)node
+- (BOOL)isValidNode:(DDXMLElement *)node
 {
-    return node.kind != NSXMLCommentKind;
+    return node.kind != DDXMLCommentKind;
 }
 
 

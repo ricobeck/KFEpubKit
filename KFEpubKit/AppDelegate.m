@@ -131,6 +131,16 @@
 }
 
 
+- (void)updateContentForSpineIndex:(NSUInteger)currentSpineIndex
+{
+    NSString *contentFile = self.contentModel.manifest[self.contentModel.spine[currentSpineIndex]][@"href"];
+    NSURL *contentURL = [self.epubController.epubContentBaseURL URLByAppendingPathComponent:contentFile];
+    
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithURL:contentURL documentAttributes:nil];
+    [self.textView.textStorage setAttributedString:attributedString];
+}
+
+
 #pragma mark KFEpubControllerDelegate Methods
 
 
@@ -146,25 +156,12 @@
     self.contentModel = contentModel;
     self.spineIndex = 1;
     [self updateContentForSpineIndex:self.spineIndex];
-
-    //[self.libraryURL stopAccessingSecurityScopedResource];
-}
-
-
-- (void)updateContentForSpineIndex:(NSUInteger)currentSpineIndex
-{
-    NSString *contentFile = self.contentModel.manifest[self.contentModel.spine[currentSpineIndex]][@"href"];
-    NSURL *contentURL = [self.epubController.epubContentBaseURL URLByAppendingPathComponent:contentFile];
-    
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithURL:contentURL documentAttributes:nil];
-    [self.textView.textStorage setAttributedString:attributedString];
 }
 
 
 - (void)epubController:(KFEpubController *)controller didFailWithError:(NSError *)error
 {
     NSLog(@"epubController:didFailWithError: %@", error.description);
-    //[self.libraryURL stopAccessingSecurityScopedResource];
 }
 
 @end

@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>KFEpubKit iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>KFEpubKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1D4FFADF17290D9800AA5D35</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D7174F5176900FC00CA1E90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
