@@ -114,7 +114,7 @@
         value = [[xmlElement attributeForName:@"full-path"] stringValue];
         count++;
     }
-
+    
     if (count == 1 && value)
     {
         return [baseURL URLByAppendingPathComponent:value];
@@ -196,12 +196,18 @@
     {
         DDXMLElement *metaNode = metaNodes[0];
         NSArray *metaElements = metaNode.children;
-
+        
         for (DDXMLElement* xmlElement in metaElements)
-        {
+        {            
             if ([self isValidNode:xmlElement])
             {
-                metaData[xmlElement.localName] = xmlElement.stringValue;
+                if (![metaData objectForKey:xmlElement.localName]) {
+                    metaData[xmlElement.localName] = xmlElement.stringValue;
+                }else{
+                    NSString * attributeString = [[[xmlElement attributes] firstObject] stringValue];
+                    NSString * metaDataKeyString = [NSString stringWithFormat:@"%@-%@", xmlElement.localName, attributeString];
+                    metaData[metaDataKeyString] = xmlElement.stringValue;
+                }
             }
         }
     }
