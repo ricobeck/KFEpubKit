@@ -196,18 +196,12 @@
     {
         DDXMLElement *metaNode = metaNodes[0];
         NSArray *metaElements = metaNode.children;
-        
+
         for (DDXMLElement* xmlElement in metaElements)
-        {            
+        {
             if ([self isValidNode:xmlElement])
             {
-                if (![metaData objectForKey:xmlElement.localName]) {
-                    metaData[xmlElement.localName] = xmlElement.stringValue;
-                }else{
-                    NSString * attributeString = [[[xmlElement attributes] firstObject] stringValue];
-                    NSString * metaDataKeyString = [NSString stringWithFormat:@"%@-%@", xmlElement.localName, attributeString];
-                    metaData[metaDataKeyString] = xmlElement.stringValue;
-                }
+                metaData[xmlElement.localName] = xmlElement.stringValue;
             }
         }
     }
@@ -232,15 +226,6 @@
     {
         DDXMLElement *spineElement = spineNodes[0];
         
-        NSString *toc = [[spineElement attributeForName:@"toc"] stringValue];
-        if (toc)
-        {
-            [spine addObject:toc];
-        }
-        else
-        {
-            [spine addObject:@""];
-        }
         NSArray *spineElements = spineElement.children;
         for (DDXMLElement* xmlElement in spineElements)
         {
@@ -258,6 +243,27 @@
     return spine;
 }
 
+- (NSString *)tocSpineItemFromDocument:(DDXMLDocument *)document
+{
+    NSString *tocSpineItem = nil;
+    DDXMLElement *root  = [document rootElement];
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *spineNodes = [root nodesForXPath:@"//default:package/default:spine" error:nil];
+    
+    if (spineNodes.count == 1)
+    {
+        DDXMLElement *spineElement = spineNodes[0];
+        tocSpineItem = [[spineElement attributeForName:@"toc"] stringValue];
+    }
+    else
+    {
+        NSLog(@"toc item invalid");
+        return nil;
+    }
+    
+    return tocSpineItem;
+}
 
 - (NSDictionary *)manifestFromDocument:(DDXMLDocument *)document
 {
@@ -351,6 +357,62 @@
     return guide;
 }
 
+- (NSArray *)chaptersFromDocument:(DDXMLDocument *)document;
+{
+    NSArray *chapters = [NSMutableArray new];
+    DDXMLElement *root  = [document rootElement];
+    
+    NSError *error;
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *chaptersNodes = [root nodesForXPath:@"//default:ncx/default:navMap" error:&error];
+    
+    if (chaptersNodes.count == 1)
+    {
+        chapters = [self chaptersFromDocumentNavMapNode:[chaptersNodes firstObject] level:0];
+    }
+    else
+    {
+        NSLog(@"chapter data invalid");
+        return nil;
+    }
+    
+    chapters = [chapters sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"playOrder" ascending:YES]]];
+    
+    return chapters;
+}
+
+- (NSArray*)chaptersFromDocumentNavMapNode:(DDXMLNode*)navNapMode level:(NSInteger)level
+{
+    NSArray *nodes = [navNapMode nodesForXPath:@"default:navPoint" error:nil];
+    if (nodes.count == 0) return nil;
+    
+    NSMutableArray *chapters = [NSMutableArray array];
+    for (DDXMLElement *node in nodes) {
+        if (![self isValidNode:node]) continue;
+        
+        NSString *identifier = [[node attributeForName:@"id"] stringValue];
+        NSInteger playOrder = [[[node attributeForName:@"playOrder"] stringValue] integerValue];
+        
+        DDXMLElement *navLabel = [[node nodesForXPath:@"default:navLabel/default:text" error:nil] firstObject];
+        NSString *label = [[[navLabel elementsForName:@"text"] firstObject] stringValue];
+
+        DDXMLElement *contents = [[node nodesForXPath:@"default:content" error:nil] firstObject];
+        NSString *src = [[contents attributeForName:@"src"] stringValue];
+        
+        NSDictionary *chapter = @{@"id" : identifier,
+                                  @"playOrder" : @(playOrder),
+                                  @"label" : label,
+                                  @"scr" : src,
+                                  @"level" : @(level)};
+        [chapters addObject:chapter];
+        
+        NSArray *subChapters = [self chaptersFromDocumentNavMapNode:node level:level+1];
+        if (subChapters.count) [chapters addObjectsFromArray:subChapters];
+    }
+    
+    return chapters;
+}
 
 - (BOOL)isValidNode:(DDXMLElement *)node
 {
