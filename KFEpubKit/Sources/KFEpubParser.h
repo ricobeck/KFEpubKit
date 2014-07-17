@@ -23,7 +23,7 @@
 
 #import <Foundation/Foundation.h>
 #import "KFEpubConstants.h"
-#import <KissXML/DDXMLDocument.h>
+#import "DDXMLDocument.h"
 
 @class KFEpubParser;
 

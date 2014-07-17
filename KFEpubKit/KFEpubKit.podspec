@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.platform         =  :osx, 10.7
   s.framework        =  'Foundation'
   s.requires_arc     =  true
-  s.source_files     =  'KFEpubKit/Sources/*.{h,m}', 'KFEpubKit/LICENSE.txt'
+  s.source_files     =  'KFEpubKit/Sources/*.{h,m}', 'KFEpubKit/LICENSE.txt', 'KFEpubKit/'
   s.dependency 'SSZipArchive'
 end
