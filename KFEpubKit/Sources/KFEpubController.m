@@ -77,6 +77,13 @@
 {
     self.parser = [KFEpubParser new];
     NSURL *rootFile = [self.parser rootFileForBaseURL:self.destinationURL];
+    
+    if (!rootFile) {
+        NSError *error = [NSError errorWithDomain:KFEpubKitErrorDomain code:1 userInfo:@{NSLocalizedDescriptionKey: @"No root file"}];
+        [self.delegate epubController:self didFailWithError:error];
+        return;
+    }
+    
     _epubContentBaseURL = [rootFile URLByDeletingLastPathComponent];
     
     NSError *error = nil;
@@ -107,6 +114,11 @@
                 [self.delegate epubController:self didOpenEpub:self.contentModel];
             }
         }
+    }
+    else
+    {
+        NSError *error = [NSError errorWithDomain:KFEpubKitErrorDomain code:1 userInfo:@{NSLocalizedDescriptionKey: @"No document found"}];
+        [self.delegate epubController:self didFailWithError:error];
     }
 }
 
