@@ -99,9 +99,21 @@
         else
         {
             self.contentModel.manifest = [self.parser manifestFromDocument:document];
-            self.contentModel.spine = [self.parser spineFromDocument:document];
             self.contentModel.guide = [self.parser guideFromDocument:document];
+            self.contentModel.spine = [self.parser spineFromDocument:document];
 
+            NSString *tocRef = [self.parser tocSpineItemFromDocument:document];
+            NSString *navigationFilePath = self.contentModel.manifest[tocRef][@"href"];
+            if (navigationFilePath) {
+                NSError *error = nil;
+                NSURL *url = [self.epubContentBaseURL URLByAppendingPathComponent:navigationFilePath];
+                NSString *content = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+                DDXMLDocument *document = [[DDXMLDocument alloc] initWithXMLString:content options:kNilOptions error:&error];
+
+                self.contentModel.chapters = [self.parser chaptersFromDocument:document];
+            }
+            
+            
             if (self.delegate)
             {
                 [self.delegate epubController:self didOpenEpub:self.contentModel];

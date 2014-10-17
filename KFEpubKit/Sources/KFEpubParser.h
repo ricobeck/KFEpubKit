@@ -23,7 +23,7 @@
 
 #import <Foundation/Foundation.h>
 #import "KFEpubConstants.h"
-#import <KissXML/DDXMLDocument.h>
+#import "DDXMLDocument.h"
 
 @class KFEpubParser;
 
@@ -41,11 +41,14 @@
 
 - (NSDictionary *)metaDataFromDocument:(DDXMLDocument *)document;
 
+- (NSString *)tocSpineItemFromDocument:(DDXMLDocument *)document;
+
 - (NSArray *)spineFromDocument:(DDXMLDocument *)document;
 
 - (NSDictionary *)manifestFromDocument:(DDXMLDocument *)document;
 
 - (NSArray *)guideFromDocument:(DDXMLDocument *)document;
 
+- (NSArray *)chaptersFromDocument:(DDXMLDocument *)document;
 
 @end

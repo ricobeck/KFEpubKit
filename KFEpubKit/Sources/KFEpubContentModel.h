@@ -36,6 +36,6 @@
 @property (nonatomic, strong) NSDictionary *manifest;
 @property (nonatomic, strong) NSArray *spine;
 @property (nonatomic, strong) NSArray *guide;
-
+@property (nonatomic, strong) NSArray *chapters;
 
 @end

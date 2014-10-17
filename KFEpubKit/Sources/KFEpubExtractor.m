@@ -79,7 +79,7 @@
         }
         else
         {
-            BOOL didSucceed = [SSZipArchive unzipFileAtPath:self.epubURL.path toDestination:self.destinationURL.path];
+            BOOL didSucceed = [SSZipArchive unzipFileAtPath:self.epubURL.path toDestination:self.destinationURL.path overwrite:NO password:nil error:nil];
             [self doneExtracting:@(didSucceed)];
             return YES;
         }
