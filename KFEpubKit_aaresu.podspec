@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             =  'KFEpubKit_aaresu'
-  s.version          =  '0.0.7'
+  s.version          =  '0.0.8'
   s.license          =  { :type => 'MIT', :file => 'LICENSE.txt' }
   s.summary          =  'An Objective-C epub extracting and parsing framework for OSX and iOS.'
   s.homepage         =  'https://pods.kf-interactive.com'
