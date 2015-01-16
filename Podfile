@@ -5,7 +5,7 @@ target 'KFEpubKit', :exclusive => true do
     platform :osx, '10.7'
     pod 'SSZipArchive'
     pod 'KissXML'
-    pod 'KFToolbar',    :git => 'https://kfi.codebasehq.com/kftoolbar/kftoolbar.git'
+    pod 'KFToolbar'#,    :git => 'https://kfi.codebasehq.com/kftoolbar/kftoolbar.git'
 end
 
 target 'KFEpubKit iOS', :exclusive => true do
