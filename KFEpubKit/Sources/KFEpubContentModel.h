@@ -36,6 +36,7 @@
 @property (nonatomic, strong) NSDictionary *manifest;
 @property (nonatomic, strong) NSArray *spine;
 @property (nonatomic, strong) NSArray *guide;
+@property (nonatomic, assign) BOOL isRTL;
 
 
 @end

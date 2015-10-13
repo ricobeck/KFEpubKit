@@ -258,6 +258,29 @@
     return spine;
 }
 
+- (BOOL)isRTLFromDocument:(DDXMLDocument *)document
+{
+    DDXMLElement *root  = [document rootElement];
+    DDXMLNode *defaultNamespace = [root namespaceForPrefix:@""];
+    defaultNamespace.name = @"default";
+    NSArray *spineNodes = [root nodesForXPath:@"//default:package/default:spine" error:nil];
+    
+    if (spineNodes.count == 1)
+    {
+        DDXMLElement *spineElement = spineNodes[0];
+        NSString *ppd = [[spineElement attributeForName:@"page-progression-direction"] stringValue];
+        if ([ppd isEqualToString:@"rtl"]) {
+            return YES;
+        } else {
+            return NO;
+        }
+    }
+    else
+    {
+        NSLog(@"spine data invalid");
+        return NO;
+    }
+}
 
 - (NSDictionary *)manifestFromDocument:(DDXMLDocument *)document
 {
