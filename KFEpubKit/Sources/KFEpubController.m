@@ -97,6 +97,7 @@
         self.contentModel.bookEncryption = [self.parser contentEncryptionForBaseURL:self.destinationURL];
         self.contentModel.metaData = [self.parser metaDataFromDocument:document];
         self.contentModel.coverPath = [self.parser coverPathComponentFromDocument:document];
+        self.contentModel.isRTL = [self.parser isRTLFromDocument:document];
         
         if (!self.contentModel.metaData)
         {
