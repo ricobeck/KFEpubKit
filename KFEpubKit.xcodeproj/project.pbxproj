@@ -741,6 +741,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -756,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D6E7C6C6E6C4380AA7FA32D /* Pods-KFEpubKit Tests.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -771,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -791,6 +794,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BF7E8FE7DF44BF2859F7881 /* Pods-KFEpubKit iOS.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -872,6 +876,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -887,6 +892,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B4408E124484AB6BF398E61 /* Pods-KFEpubKit.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = KFEpubKit/KFEpubKit.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
