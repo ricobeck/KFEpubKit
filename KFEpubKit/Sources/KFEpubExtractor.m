@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 #import "KFEpubExtractor.h"
-#import <SSZipArchive.h>
+#import <SSZipArchive/SSZipArchive.h>
 #import "KFEpubConstants.h"
 
 
